@@ -7,7 +7,10 @@ import {
   ChevronDown,
   Clock3,
   Code2,
+  FolderGit2,
   GitBranch,
+  GitCommit,
+  GitPullRequest,
   Globe2,
   Link2,
   Mail,
@@ -394,61 +397,425 @@ function DesignsView() {
   )
 }
 
+const streakMonthHeaders = [
+  { name: 'Dec', col: 0 },
+  { name: 'Jan', col: 4 },
+  { name: 'Feb', col: 8 },
+  { name: 'Mar', col: 12 },
+  { name: 'Apr', col: 17 },
+  { name: 'May', col: 21 },
+  { name: 'Jun', col: 26 },
+  { name: 'Jul', col: 30 },
+  { name: 'Aug', col: 34 },
+  { name: 'Sep', col: 39 },
+]
+
+const streakHighlights = {
+  '9-1': [3, 11],
+  '13-2': [3, 12],
+  '14-2': [3, 10],
+  '16-3': [3, 14],
+  '23-3': [3, 12],
+  '25-6': [3, 13],
+  '26-0': [3, 11],
+  '27-3': [3, 12],
+  '27-4': [3, 14],
+  '27-5': [3, 11],
+  '27-6': [3, 10],
+  '36-2': [3, 12],
+  '38-1': [4, 22],
+  '39-0': [4, 24],
+  '40-2': [3, 11],
+}
+
+const streakInactives = new Set([
+  '41-5', '41-6',
+  '42-0', '42-1', '42-3', '42-4', '42-5', '42-6',
+  '43-0', '43-1', '43-2', '43-3', '43-4', '43-5', '43-6',
+])
+
+function generateStreakWeeks() {
+  const startDate = new Date(2025, 11, 7) // Dec 7, 2025 (Sunday)
+  const weeks = []
+
+  for (let w = 0; w < 44; w++) {
+    const days = []
+    for (let d = 0; d < 7; d++) {
+      const cellDate = new Date(startDate)
+      cellDate.setDate(startDate.getDate() + w * 7 + d)
+      const dateStr = cellDate.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      })
+
+      const key = `${w}-${d}`
+      let level = 2
+      let count = 5 + ((w * 3 + d * 5) % 4)
+
+      if (streakInactives.has(key)) {
+        level = 0
+        count = 0
+      } else if (streakHighlights[key]) {
+        level = streakHighlights[key][0]
+        count = streakHighlights[key][1]
+      } else if ((w + d) % 9 === 0) {
+        level = 1
+        count = 2 + (d % 2)
+      }
+
+      days.push({ level, count, date: dateStr })
+    }
+    weeks.push(days)
+  }
+  return weeks
+}
+
+const streakWeeksData = generateStreakWeeks()
+
 function StatsView() {
+  const [hoveredCell, setHoveredCell] = useState(null)
+
   return (
     <div className="view stats-view">
-      <div className="stats-grid">
-        <article className="stat-card github-stat">
-          <div className="stat-card-title">
-            <GitBranch size={16} />
-            <span>github</span>
-            <ArrowUpRight size={14} />
+      <div className="stats-container">
+        {/* MANUAL GITHUB CONTRIBUTIONS & ACTIVITY CARD */}
+        <article className="stat-card github-contributions-card">
+          {/* HEADER */}
+          <div className="github-contributions-header">
+            <div className="github-contributions-title-area">
+              <h2 className="github-contributions-title">GitHub Contributions</h2>
+              <p className="github-contributions-subtitle">
+                My contributions to GitHub repositories in the past 12 months
+              </p>
+            </div>
+            <a
+              href="https://github.com/siddharthkmaharana"
+              {...externalProps}
+              className="github-profile-link-btn"
+              title="Open Siddharth's GitHub Profile"
+            >
+              <GitBranch size={15} />
+              <span>siddharthkmaharana</span>
+              <ArrowUpRight size={14} />
+            </a>
           </div>
-          <div className="heatmap">
-            <span>contributions in the last year</span>
-            {Array.from({ length: 84 }, (_, index) => (
-              <i key={index} className={`level-${(index * 7) % 5}`} />
-            ))}
+
+          {/* STREAK MAP CALENDAR BOX */}
+          <div className="streak-calendar-box">
+            <div className="streak-calendar-scroll">
+              <div className="streak-calendar-content">
+                {/* Month labels */}
+                <div className="streak-months-row">
+                  {streakMonthHeaders.map((m) => (
+                    <span
+                      key={m.name}
+                      className="streak-month-label"
+                      style={{ left: `${m.col * 15.5}px` }}
+                    >
+                      {m.name}
+                    </span>
+                  ))}
+                </div>
+
+                {/* 7x44 Grid */}
+                <div className="streak-grid">
+                  {streakWeeksData.map((week, wIdx) => (
+                    <div key={wIdx} className="streak-col">
+                      {week.map((day, dIdx) => (
+                        <div
+                          key={dIdx}
+                          className={`streak-cell level-${day.level}`}
+                          title={`${day.count} activities on ${day.date}`}
+                          onMouseEnter={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect()
+                            setHoveredCell({
+                              count: day.count,
+                              date: day.date,
+                              x: rect.left + rect.width / 2,
+                              top: rect.top - 8,
+                            })
+                          }}
+                          onMouseLeave={() => setHoveredCell(null)}
+                        />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Custom scrollbar track matching reference image */}
+            <div className="streak-scrollbar-track">
+              <div className="streak-scrollbar-thumb" />
+            </div>
           </div>
-          <strong>20 contributions</strong>
+
+          {/* FOOTER ROW */}
+          <div className="streak-footer-row">
+            <div className="streak-count-label">
+              <span>4575 activities in past 12 months</span>
+            </div>
+            <div className="streak-legend">
+              <span className="legend-label">Less</span>
+              <span className="streak-cell level-0" title="0 activities" />
+              <span className="streak-cell level-1" title="1-3 activities" />
+              <span className="streak-cell level-2" title="4-8 activities" />
+              <span className="streak-cell level-3" title="9-14 activities" />
+              <span className="streak-cell level-4" title="15+ activities" />
+              <span className="legend-label">More</span>
+            </div>
+          </div>
+
+          {/* CONTRIBUTION ACTIVITY SECTION */}
+          <div className="contribution-activity-section">
+            <div className="activity-section-header">
+              <h3>Contribution activity</h3>
+            </div>
+
+            <div className="activity-month-divider">
+              <span className="activity-month-tag">
+                September <strong>2026</strong>
+              </span>
+              <span className="activity-month-line" />
+            </div>
+
+            <div className="activity-timeline">
+              {/* COMMITS ITEM */}
+              <div className="activity-item">
+                <div className="activity-icon-col">
+                  <div className="activity-icon-badge">
+                    <GitCommit size={15} />
+                  </div>
+                  <div className="activity-timeline-line" />
+                </div>
+                <div className="activity-content-col">
+                  <div className="activity-heading-row">
+                    <h4>Created 30 commits in 5 repositories</h4>
+                  </div>
+                  <div className="activity-repos-list">
+                    <div className="activity-repo-row">
+                      <div className="activity-repo-info">
+                        <a
+                          href="https://github.com/siddharthkmaharana/siddharthkmaharana"
+                          {...externalProps}
+                          className="activity-repo-name"
+                        >
+                          siddharthkmaharana/siddharthkmaharana
+                        </a>
+                        <span className="activity-commit-count">19 commits</span>
+                      </div>
+                      <div className="activity-progress-track">
+                        <div className="activity-progress-fill" style={{ width: '68%' }} />
+                      </div>
+                    </div>
+
+                    <div className="activity-repo-row">
+                      <div className="activity-repo-info">
+                        <a
+                          href="https://github.com/siddharthkmaharana/leetcode-solutions"
+                          {...externalProps}
+                          className="activity-repo-name"
+                        >
+                          siddharthkmaharana/leetcode-solutions
+                        </a>
+                        <span className="activity-commit-count">4 commits</span>
+                      </div>
+                      <div className="activity-progress-track">
+                        <div className="activity-progress-fill" style={{ width: '22%' }} />
+                      </div>
+                    </div>
+
+                    <div className="activity-repo-row">
+                      <div className="activity-repo-info">
+                        <a
+                          href="https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer"
+                          {...externalProps}
+                          className="activity-repo-name"
+                        >
+                          siddharthkmaharana/Merkle-Tree-Visualizer
+                        </a>
+                        <span className="activity-commit-count">4 commits</span>
+                      </div>
+                      <div className="activity-progress-track">
+                        <div className="activity-progress-fill" style={{ width: '22%' }} />
+                      </div>
+                    </div>
+
+                    <div className="activity-repo-row">
+                      <div className="activity-repo-info">
+                        <a
+                          href="https://github.com/siddharthkmaharana/Integrated-Food-Delivery-and-Dine-Out-Hospitality-Platform"
+                          {...externalProps}
+                          className="activity-repo-name"
+                        >
+                          siddharthkmaharana/Integrated-Food-De...
+                        </a>
+                        <span className="activity-commit-count">2 commits</span>
+                      </div>
+                      <div className="activity-progress-track">
+                        <div className="activity-progress-fill" style={{ width: '12%' }} />
+                      </div>
+                    </div>
+
+                    <div className="activity-repo-row">
+                      <div className="activity-repo-info">
+                        <a
+                          href="https://github.com/siddharthkmaharana/portfolio"
+                          {...externalProps}
+                          className="activity-repo-name"
+                        >
+                          siddharthkmaharana/portfolio
+                        </a>
+                        <span className="activity-commit-count">1 commit</span>
+                      </div>
+                      <div className="activity-progress-track">
+                        <div className="activity-progress-fill" style={{ width: '6%' }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* REPOSITORY CREATED ITEM */}
+              <div className="activity-item">
+                <div className="activity-icon-col">
+                  <div className="activity-icon-badge">
+                    <FolderGit2 size={15} />
+                  </div>
+                  <div className="activity-timeline-line" />
+                </div>
+                <div className="activity-content-col">
+                  <div className="activity-heading-row">
+                    <h4>Created 1 repository</h4>
+                  </div>
+                  <div className="activity-repo-created-card">
+                    <div className="activity-repo-created-left">
+                      <Code2 size={15} className="repo-code-icon" />
+                      <a
+                        href="https://github.com/siddharthkmaharana/portfolio"
+                        {...externalProps}
+                        className="activity-repo-name"
+                      >
+                        siddharthkmaharana/portfolio
+                      </a>
+                    </div>
+                    <div className="activity-repo-created-right">
+                      <span className="lang-pill">
+                        <span className="lang-dot purple" />
+                        CSS
+                      </span>
+                      <span className="activity-date-badge">Sep 2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* PULL REQUEST ITEM */}
+              <div className="activity-item">
+                <div className="activity-icon-col">
+                  <div className="activity-icon-badge">
+                    <GitPullRequest size={15} />
+                  </div>
+                </div>
+                <div className="activity-content-col">
+                  <div className="activity-heading-row">
+                    <h4>Opened 1 pull request in 1 repository</h4>
+                  </div>
+                  <div className="activity-pr-block">
+                    <div className="activity-pr-repo-row">
+                      <a
+                        href="https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer"
+                        {...externalProps}
+                        className="activity-repo-name"
+                      >
+                        siddharthkmaharana/Merkle-Tree-Visualizer
+                      </a>
+                      <span className="pr-status-pill merged">
+                        <span className="pr-merged-count">1</span> merged
+                      </span>
+                    </div>
+                    <div className="activity-pr-detail-row">
+                      <div className="activity-pr-title">
+                        <GitPullRequest size={13} className="pr-inline-icon" />
+                        <a
+                          href="https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer/pulls"
+                          {...externalProps}
+                        >
+                          feat: decouple base44 leftovers, add client API, fix visualization al...
+                        </a>
+                      </div>
+                      <span className="activity-date-badge">Sep 14</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SHOW MORE ACTIVITY LINK */}
+            <div className="activity-footer">
+              <a
+                href="https://github.com/siddharthkmaharana"
+                {...externalProps}
+                className="show-more-activity-btn"
+              >
+                Show more activity
+              </a>
+            </div>
+          </div>
         </article>
 
-        <article className="stat-card progress-stat">
-          <div className="stat-card-title">
-            <span>Take U Forward</span>
-            <ArrowUpRight size={14} />
+        {/* FLOATING HOVER TOOLTIP */}
+        {hoveredCell && (
+          <div
+            className="streak-tooltip-bubble"
+            style={{ left: `${hoveredCell.x}px`, top: `${hoveredCell.top}px` }}
+          >
+            <strong>{hoveredCell.count} activities</strong> on {hoveredCell.date}
           </div>
-          <div className="progress-number">
-            <strong>61 <small>/ 191</small></strong>
-            <span>32%</span>
-          </div>
-          <div className="progress-bar">
-            <i />
-          </div>
-          <div className="progress-breakdown">
-            <span>Easy <b>17 / 32</b></span>
-            <span>Medium <b>34 / 95</b></span>
-            <span>Hard <b>10 / 64</b></span>
-          </div>
-        </article>
+        )}
 
-        <a className="stat-card leetcode-stat" href="https://leetcode.com/u/siddharthkmleetcode/" {...externalProps}>
-          <div className="stat-card-title">
-            <span>LeetCode Heatmap</span>
-            <ArrowUpRight size={14} />
-          </div>
-          <div className="leetcode-mark">LC</div>
-          <p>Consistency compounds.</p>
-        </a>
+        {/* BOTTOM ROW: TAKE U FORWARD + LEETCODE & NOTION */}
+        <div className="stats-subgrid">
+          <article className="stat-card progress-stat">
+            <div className="stat-card-title">
+              <span>Take U Forward</span>
+              <ArrowUpRight size={14} />
+            </div>
+            <div className="progress-number">
+              <strong>61 <small>/ 191</small></strong>
+              <span>32%</span>
+            </div>
+            <div className="progress-bar">
+              <i />
+            </div>
+            <div className="progress-breakdown">
+              <span>Easy <b>17 / 32</b></span>
+              <span>Medium <b>34 / 95</b></span>
+              <span>Hard <b>10 / 64</b></span>
+            </div>
+          </article>
 
-        <article className="stat-card notion-stat">
-          <div className="notion-mark">N</div>
-          <div>
-            <strong>Learning archive</strong>
-            <p>Notion embed / currently collecting notes.</p>
+          <div className="stats-secondary-col">
+            <a className="stat-card leetcode-stat" href="https://leetcode.com/u/siddharthkmleetcode/" {...externalProps}>
+              <div className="stat-card-title">
+                <span>LeetCode Heatmap</span>
+                <ArrowUpRight size={14} />
+              </div>
+              <div className="leetcode-mark">LC</div>
+              <p>Consistency compounds.</p>
+            </a>
+
+            <article className="stat-card notion-stat">
+              <div className="notion-mark">N</div>
+              <div>
+                <strong>Learning archive</strong>
+                <p>Notion embed / currently collecting notes.</p>
+              </div>
+              <ArrowUpRight size={14} />
+            </article>
           </div>
-          <ArrowUpRight size={14} />
-        </article>
+        </div>
       </div>
     </div>
   )
