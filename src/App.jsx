@@ -199,7 +199,7 @@ function App() {
           <section className="content-section" id="content">
             <div className="tab-bar-wrapper">
               <nav className="tab-bar" aria-label="Portfolio sections">
-                {['Projects', 'Experience', 'TIL', 'Designs', 'Stats'].map((tab) => (
+                {['Projects', 'Experience', 'TIL', 'Designs', 'GitHub'].map((tab) => (
                   <button
                     key={tab}
                     className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
@@ -225,7 +225,7 @@ function App() {
               {activeTab === 'Experience' && <ExperienceView />}
               {activeTab === 'TIL' && <TilView />}
               {activeTab === 'Designs' && <DesignsView />}
-              {activeTab === 'Stats' && <StatsView />}
+              {activeTab === 'GitHub' && <GitHubView />}
             </div>
           </section>
         </main>
@@ -473,11 +473,11 @@ function generateStreakWeeks() {
 
 const streakWeeksData = generateStreakWeeks()
 
-function StatsView() {
+function GitHubView() {
   const [hoveredCell, setHoveredCell] = useState(null)
 
   return (
-    <div className="view stats-view">
+    <div className="view stats-view github-view">
       <div className="stats-container">
         {/* MANUAL GITHUB CONTRIBUTIONS & ACTIVITY CARD */}
         <article className="stat-card github-contributions-card">
@@ -774,52 +774,12 @@ function StatsView() {
             <strong>{hoveredCell.count} activities</strong> on {hoveredCell.date}
           </div>
         )}
-
-        {/* BOTTOM ROW: TAKE U FORWARD + LEETCODE & NOTION */}
-        <div className="stats-subgrid">
-          <article className="stat-card progress-stat">
-            <div className="stat-card-title">
-              <span>Take U Forward</span>
-              <ArrowUpRight size={14} />
-            </div>
-            <div className="progress-number">
-              <strong>61 <small>/ 191</small></strong>
-              <span>32%</span>
-            </div>
-            <div className="progress-bar">
-              <i />
-            </div>
-            <div className="progress-breakdown">
-              <span>Easy <b>17 / 32</b></span>
-              <span>Medium <b>34 / 95</b></span>
-              <span>Hard <b>10 / 64</b></span>
-            </div>
-          </article>
-
-          <div className="stats-secondary-col">
-            <a className="stat-card leetcode-stat" href="https://leetcode.com/u/siddharthkmleetcode/" {...externalProps}>
-              <div className="stat-card-title">
-                <span>LeetCode Heatmap</span>
-                <ArrowUpRight size={14} />
-              </div>
-              <div className="leetcode-mark">LC</div>
-              <p>Consistency compounds.</p>
-            </a>
-
-            <article className="stat-card notion-stat">
-              <div className="notion-mark">N</div>
-              <div>
-                <strong>Learning archive</strong>
-                <p>Notion embed / currently collecting notes.</p>
-              </div>
-              <ArrowUpRight size={14} />
-            </article>
-          </div>
-        </div>
       </div>
     </div>
   )
 }
+
+const StatsView = GitHubView
 
 function ScheduleModal({ onClose }) {
   return (
