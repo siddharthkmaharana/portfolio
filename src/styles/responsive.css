@@ -1,0 +1,49 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS & PHONES)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .layout-frame {
+    padding: 10px;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+  .page-shell {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 20px);
+    border-radius: 18px;
+  }
+  .profile-header {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 24px 20px 28px;
+    overflow-y: visible;
+  }
+  .content-section {
+    height: auto;
+    overflow: visible;
+  }
+  .tab-bar-wrapper {
+    padding: 20px 20px 0 20px;
+  }
+  .content-body {
+    padding: 16px 20px 48px 20px;
+    overflow: visible;
+  }
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .project-preview-box {
+    width: 100%;
+    height: 200px;
+  }
+  .stats-subgrid, .booking-grid {
+    grid-template-columns: 1fr;
+  }
+}

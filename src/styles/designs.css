@@ -1,0 +1,71 @@
+/* ==========================================================================
+   DESIGNS SHOWCASE STYLES
+   ========================================================================== */
+
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.design-card {
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.design-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+}
+
+.design-art {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-family: ui-monospace, monospace;
+}
+
+.design-art::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+}
+
+.zentry .design-art { background: linear-gradient(135deg, #bd5e2f, #291714 55%, #07151b); }
+.apple .design-art { background: linear-gradient(135deg, #9eb9c2, #283844 54%, #0e1114); }
+.glass .design-art { background: linear-gradient(135deg, #ef9e69, #6b3c53 47%, #1e2539); }
+.spotify .design-art { background: linear-gradient(135deg, #75bd3c, #133f29 53%, #101613); }
+
+.design-art span {
+  position: relative;
+  z-index: 1;
+}
+
+.design-copy {
+  padding: 16px 18px 20px;
+}
+
+.design-copy h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.design-copy p {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+}

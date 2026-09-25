@@ -1,0 +1,56 @@
+/* ==========================================================================
+   TIL (TODAY I LEARNED) TIMELINE STYLES
+   ========================================================================== */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px 20px 1fr;
+  gap: 16px;
+  min-height: 70px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 149px;
+  top: 10px;
+  bottom: -24px;
+  border-left: 1.5px solid var(--border);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-date-col {
+  padding-top: 2px;
+}
+
+.timeline-marker {
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--bg-shell);
+}
+
+.timeline-copy p {
+  margin: 0 0 6px;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.timeline-copy p:first-child {
+  color: var(--text);
+  font-weight: 500;
+}

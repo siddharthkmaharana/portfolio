@@ -1,0 +1,72 @@
+/* ==========================================================================
+   CONTENT CONTAINER & TAB BAR NAVIGATION
+   ========================================================================== */
+
+.content-section {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--bg-shell);
+}
+
+.tab-bar-wrapper {
+  flex-shrink: 0;
+  padding: 24px 32px 0 32px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  border-bottom: none;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 0 0 10px 0;
+  color: var(--tab-text-inactive);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+}
+
+.tab-btn.active {
+  color: var(--tab-text-active);
+  font-weight: 600;
+  border-bottom: 3px solid var(--tab-indicator);
+}
+
+.content-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 32px 48px 32px;
+  box-sizing: border-box;
+}
+
+/* VIEW FADE-IN ANIMATION */
+.view {
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

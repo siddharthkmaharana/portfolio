@@ -1,0 +1,128 @@
+/* ==========================================================================
+   THEME VARIABLES & APP LAYOUT SHELL
+   ========================================================================== */
+
+/* ROOT APP CONTAINER */
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* DARK THEME */
+.app.dark {
+  --bg-page: #000000;
+  --bg-shell: #000000;
+  --bg-card: #000000;
+  --border: #262626;
+  --border-subtle: #1c1c1c;
+  --card-border: #262626;
+  --card-border-hover: #3b3b3b;
+  --search-bg: #000000;
+  --search-border: #262626;
+  --search-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  --text: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  --btn-primary-hover: #e5e5e5;
+  --btn-secondary-bg: rgba(55, 65, 81, 0.3);
+  --btn-secondary-border: #374151;
+  --btn-secondary-text: #ffffff;
+  --btn-secondary-hover: rgba(75, 85, 99, 0.5);
+  --pill-bg: #1f2937;
+  --pill-text: #d1d5db;
+  --pill-border: #374151;
+  --tab-indicator: #ffffff;
+  --tab-text-inactive: #9ca3af;
+  --tab-text-active: #ffffff;
+  --cal-bg: #000000;
+  --cal-border: #333333;
+  --cal-text: #ffffff;
+  --modal-bg: #0c0c0c;
+  background-color: var(--bg-page);
+  color: var(--text);
+}
+
+/* LIGHT THEME */
+.app.light {
+  --bg-page: #f5f5f5;
+  --bg-shell: #ffffff;
+  --bg-card: #ffffff;
+  --border: #e5e7eb;
+  --border-subtle: #f3f4f6;
+  --card-border: #e5e7eb;
+  --card-border-hover: #d1d5db;
+  --search-bg: #ffffff;
+  --search-border: #d1d5db;
+  --search-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  --text: #111827;
+  --text-secondary: #374151;
+  --text-muted: #4b5563;
+  --text-dim: #9ca3af;
+  --btn-primary-bg: #000000;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #262626;
+  --btn-secondary-bg: #f3f4f6;
+  --btn-secondary-border: #e5e7eb;
+  --btn-secondary-text: #111827;
+  --btn-secondary-hover: #e5e7eb;
+  --pill-bg: #f3f4f6;
+  --pill-text: #374151;
+  --pill-border: #e5e7eb;
+  --tab-indicator: #000000;
+  --tab-text-inactive: #6b7280;
+  --tab-text-active: #000000;
+  --cal-bg: #ffffff;
+  --cal-border: #e5e7eb;
+  --cal-text: #000000;
+  --modal-bg: #ffffff;
+  background-color: var(--bg-page);
+  color: var(--text);
+}
+
+/* OUTER FRAME PADDING */
+.layout-frame {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN ENCLOSING CARD WITH ROUNDED CORNERS */
+.page-shell {
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  background: var(--bg-shell);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+/* CUSTOM SLIM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
