@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, GitBranch } from 'lucide-react'
 import { statsData } from '../data/stats'
 
@@ -6,10 +6,36 @@ const externalProps = { target: '_blank', rel: 'noreferrer' }
 
 export function Stats({ data = statsData }) {
   const [hoveredCell, setHoveredCell] = useState(null)
+  const scrollRef = useRef(null)
   const streak = data.realStreak || {}
   const totalContributions = streak.total || '449'
   const username = data.githubUsername || 'siddharthkmaharana'
   const profileUrl = data.githubProfileUrl || `https://github.com/${username}`
+
+  // Automatically scroll to the right edge on mount so recent contributions are shown first
+  useLayoutEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
+    }
+  }, [])
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
+      }
+    })
+    const timer = setTimeout(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
+      }
+    }, 60)
+
+    return () => {
+      cancelAnimationFrame(frame)
+      clearTimeout(timer)
+    }
+  }, [])
 
   return (
     <div className="view stats-view">
@@ -38,7 +64,7 @@ export function Stats({ data = statsData }) {
 
           {/* STREAK MAP CALENDAR BOX */}
           <div className="streak-calendar-box">
-            <div className="streak-calendar-scroll">
+            <div className="streak-calendar-scroll" ref={scrollRef}>
               <div className="streak-calendar-content">
                 {/* Month labels along the top */}
                 {streak.monthHeaders && (
