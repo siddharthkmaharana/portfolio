@@ -199,7 +199,7 @@ function App() {
           <section className="content-section" id="content">
             <div className="tab-bar-wrapper">
               <nav className="tab-bar" aria-label="Portfolio sections">
-                {['Projects', 'Experience', 'TIL', 'Designs', 'GitHub'].map((tab) => (
+                {['Projects', 'Experience', 'TIL', 'Designs', 'Stats'].map((tab) => (
                   <button
                     key={tab}
                     className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
@@ -225,7 +225,7 @@ function App() {
               {activeTab === 'Experience' && <ExperienceView />}
               {activeTab === 'TIL' && <TilView />}
               {activeTab === 'Designs' && <DesignsView />}
-              {activeTab === 'GitHub' && <GitHubView />}
+              {activeTab === 'Stats' && <StatsView />}
             </div>
           </section>
         </main>
@@ -473,11 +473,11 @@ function generateStreakWeeks() {
 
 const streakWeeksData = generateStreakWeeks()
 
-function GitHubView() {
+function StatsView() {
   const [hoveredCell, setHoveredCell] = useState(null)
 
   return (
-    <div className="view stats-view github-view">
+    <div className="view stats-view">
       <div className="stats-container">
         {/* MANUAL GITHUB CONTRIBUTIONS & ACTIVITY CARD */}
         <article className="stat-card github-contributions-card">
@@ -566,203 +566,6 @@ function GitHubView() {
               <span className="legend-label">More</span>
             </div>
           </div>
-
-          {/* CONTRIBUTION ACTIVITY SECTION */}
-          <div className="contribution-activity-section">
-            <div className="activity-section-header">
-              <h3>Contribution activity</h3>
-            </div>
-
-            <div className="activity-month-divider">
-              <span className="activity-month-tag">
-                September <strong>2026</strong>
-              </span>
-              <span className="activity-month-line" />
-            </div>
-
-            <div className="activity-timeline">
-              {/* COMMITS ITEM */}
-              <div className="activity-item">
-                <div className="activity-icon-col">
-                  <div className="activity-icon-badge">
-                    <GitCommit size={15} />
-                  </div>
-                  <div className="activity-timeline-line" />
-                </div>
-                <div className="activity-content-col">
-                  <div className="activity-heading-row">
-                    <h4>Created 30 commits in 5 repositories</h4>
-                  </div>
-                  <div className="activity-repos-list">
-                    <div className="activity-repo-row">
-                      <div className="activity-repo-info">
-                        <a
-                          href="https://github.com/siddharthkmaharana/siddharthkmaharana"
-                          {...externalProps}
-                          className="activity-repo-name"
-                        >
-                          siddharthkmaharana/siddharthkmaharana
-                        </a>
-                        <span className="activity-commit-count">19 commits</span>
-                      </div>
-                      <div className="activity-progress-track">
-                        <div className="activity-progress-fill" style={{ width: '68%' }} />
-                      </div>
-                    </div>
-
-                    <div className="activity-repo-row">
-                      <div className="activity-repo-info">
-                        <a
-                          href="https://github.com/siddharthkmaharana/leetcode-solutions"
-                          {...externalProps}
-                          className="activity-repo-name"
-                        >
-                          siddharthkmaharana/leetcode-solutions
-                        </a>
-                        <span className="activity-commit-count">4 commits</span>
-                      </div>
-                      <div className="activity-progress-track">
-                        <div className="activity-progress-fill" style={{ width: '22%' }} />
-                      </div>
-                    </div>
-
-                    <div className="activity-repo-row">
-                      <div className="activity-repo-info">
-                        <a
-                          href="https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer"
-                          {...externalProps}
-                          className="activity-repo-name"
-                        >
-                          siddharthkmaharana/Merkle-Tree-Visualizer
-                        </a>
-                        <span className="activity-commit-count">4 commits</span>
-                      </div>
-                      <div className="activity-progress-track">
-                        <div className="activity-progress-fill" style={{ width: '22%' }} />
-                      </div>
-                    </div>
-
-                    <div className="activity-repo-row">
-                      <div className="activity-repo-info">
-                        <a
-                          href="https://github.com/siddharthkmaharana/Integrated-Food-Delivery-and-Dine-Out-Hospitality-Platform"
-                          {...externalProps}
-                          className="activity-repo-name"
-                        >
-                          siddharthkmaharana/Integrated-Food-De...
-                        </a>
-                        <span className="activity-commit-count">2 commits</span>
-                      </div>
-                      <div className="activity-progress-track">
-                        <div className="activity-progress-fill" style={{ width: '12%' }} />
-                      </div>
-                    </div>
-
-                    <div className="activity-repo-row">
-                      <div className="activity-repo-info">
-                        <a
-                          href="https://github.com/siddharthkmaharana/portfolio"
-                          {...externalProps}
-                          className="activity-repo-name"
-                        >
-                          siddharthkmaharana/portfolio
-                        </a>
-                        <span className="activity-commit-count">1 commit</span>
-                      </div>
-                      <div className="activity-progress-track">
-                        <div className="activity-progress-fill" style={{ width: '6%' }} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* REPOSITORY CREATED ITEM */}
-              <div className="activity-item">
-                <div className="activity-icon-col">
-                  <div className="activity-icon-badge">
-                    <FolderGit2 size={15} />
-                  </div>
-                  <div className="activity-timeline-line" />
-                </div>
-                <div className="activity-content-col">
-                  <div className="activity-heading-row">
-                    <h4>Created 1 repository</h4>
-                  </div>
-                  <div className="activity-repo-created-card">
-                    <div className="activity-repo-created-left">
-                      <Code2 size={15} className="repo-code-icon" />
-                      <a
-                        href="https://github.com/siddharthkmaharana/portfolio"
-                        {...externalProps}
-                        className="activity-repo-name"
-                      >
-                        siddharthkmaharana/portfolio
-                      </a>
-                    </div>
-                    <div className="activity-repo-created-right">
-                      <span className="lang-pill">
-                        <span className="lang-dot purple" />
-                        CSS
-                      </span>
-                      <span className="activity-date-badge">Sep 2</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* PULL REQUEST ITEM */}
-              <div className="activity-item">
-                <div className="activity-icon-col">
-                  <div className="activity-icon-badge">
-                    <GitPullRequest size={15} />
-                  </div>
-                </div>
-                <div className="activity-content-col">
-                  <div className="activity-heading-row">
-                    <h4>Opened 1 pull request in 1 repository</h4>
-                  </div>
-                  <div className="activity-pr-block">
-                    <div className="activity-pr-repo-row">
-                      <a
-                        href="https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer"
-                        {...externalProps}
-                        className="activity-repo-name"
-                      >
-                        siddharthkmaharana/Merkle-Tree-Visualizer
-                      </a>
-                      <span className="pr-status-pill merged">
-                        <span className="pr-merged-count">1</span> merged
-                      </span>
-                    </div>
-                    <div className="activity-pr-detail-row">
-                      <div className="activity-pr-title">
-                        <GitPullRequest size={13} className="pr-inline-icon" />
-                        <a
-                          href="https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer/pulls"
-                          {...externalProps}
-                        >
-                          feat: decouple base44 leftovers, add client API, fix visualization al...
-                        </a>
-                      </div>
-                      <span className="activity-date-badge">Sep 14</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* SHOW MORE ACTIVITY LINK */}
-            <div className="activity-footer">
-              <a
-                href="https://github.com/siddharthkmaharana"
-                {...externalProps}
-                className="show-more-activity-btn"
-              >
-                Show more activity
-              </a>
-            </div>
-          </div>
         </article>
 
         {/* FLOATING HOVER TOOLTIP */}
@@ -779,7 +582,7 @@ function GitHubView() {
   )
 }
 
-const StatsView = GitHubView
+const GitHubView = StatsView
 
 function ScheduleModal({ onClose }) {
   return (
