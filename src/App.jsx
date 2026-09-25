@@ -24,6 +24,7 @@ import {
   X,
 } from 'lucide-react'
 import './App.css'
+import githubRealStreak from './github-real-streak.json'
 
 const projects = [
   {
@@ -397,96 +398,21 @@ function DesignsView() {
   )
 }
 
-const streakMonthHeaders = [
-  { name: 'Dec', col: 0 },
-  { name: 'Jan', col: 4 },
-  { name: 'Feb', col: 8 },
-  { name: 'Mar', col: 12 },
-  { name: 'Apr', col: 17 },
-  { name: 'May', col: 21 },
-  { name: 'Jun', col: 26 },
-  { name: 'Jul', col: 30 },
-  { name: 'Aug', col: 34 },
-  { name: 'Sep', col: 39 },
-]
-
-const streakHighlights = {
-  '9-1': [3, 11],
-  '13-2': [3, 12],
-  '14-2': [3, 10],
-  '16-3': [3, 14],
-  '23-3': [3, 12],
-  '25-6': [3, 13],
-  '26-0': [3, 11],
-  '27-3': [3, 12],
-  '27-4': [3, 14],
-  '27-5': [3, 11],
-  '27-6': [3, 10],
-  '36-2': [3, 12],
-  '38-1': [4, 22],
-  '39-0': [4, 24],
-  '40-2': [3, 11],
-}
-
-const streakInactives = new Set([
-  '41-5', '41-6',
-  '42-0', '42-1', '42-3', '42-4', '42-5', '42-6',
-  '43-0', '43-1', '43-2', '43-3', '43-4', '43-5', '43-6',
-])
-
-function generateStreakWeeks() {
-  const startDate = new Date(2025, 11, 7) // Dec 7, 2025 (Sunday)
-  const weeks = []
-
-  for (let w = 0; w < 44; w++) {
-    const days = []
-    for (let d = 0; d < 7; d++) {
-      const cellDate = new Date(startDate)
-      cellDate.setDate(startDate.getDate() + w * 7 + d)
-      const dateStr = cellDate.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-      })
-
-      const key = `${w}-${d}`
-      let level = 2
-      let count = 5 + ((w * 3 + d * 5) % 4)
-
-      if (streakInactives.has(key)) {
-        level = 0
-        count = 0
-      } else if (streakHighlights[key]) {
-        level = streakHighlights[key][0]
-        count = streakHighlights[key][1]
-      } else if ((w + d) % 9 === 0) {
-        level = 1
-        count = 2 + (d % 2)
-      }
-
-      days.push({ level, count, date: dateStr })
-    }
-    weeks.push(days)
-  }
-  return weeks
-}
-
-const streakWeeksData = generateStreakWeeks()
-
 function StatsView() {
   const [hoveredCell, setHoveredCell] = useState(null)
+  const totalContributions = githubRealStreak.total || '449'
 
   return (
     <div className="view stats-view">
       <div className="stats-container">
-        {/* MANUAL GITHUB CONTRIBUTIONS & ACTIVITY CARD */}
+        {/* REAL GITHUB CONTRIBUTIONS STREAK CARD */}
         <article className="stat-card github-contributions-card">
           {/* HEADER */}
           <div className="github-contributions-header">
             <div className="github-contributions-title-area">
               <h2 className="github-contributions-title">GitHub Contributions</h2>
               <p className="github-contributions-subtitle">
-                My contributions to GitHub repositories in the past 12 months
+                {totalContributions} contributions in the last year
               </p>
             </div>
             <a
@@ -505,47 +431,60 @@ function StatsView() {
           <div className="streak-calendar-box">
             <div className="streak-calendar-scroll">
               <div className="streak-calendar-content">
-                {/* Month labels */}
+                {/* Month labels along the top */}
                 <div className="streak-months-row">
-                  {streakMonthHeaders.map((m) => (
+                  {githubRealStreak.monthHeaders.map((m, idx) => (
                     <span
-                      key={m.name}
+                      key={idx}
                       className="streak-month-label"
-                      style={{ left: `${m.col * 15.5}px` }}
+                      style={{ left: `${30 + m.col * 14.5}px` }}
                     >
                       {m.name}
                     </span>
                   ))}
                 </div>
 
-                {/* 7x44 Grid */}
-                <div className="streak-grid">
-                  {streakWeeksData.map((week, wIdx) => (
-                    <div key={wIdx} className="streak-col">
-                      {week.map((day, dIdx) => (
-                        <div
-                          key={dIdx}
-                          className={`streak-cell level-${day.level}`}
-                          title={`${day.count} activities on ${day.date}`}
-                          onMouseEnter={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect()
-                            setHoveredCell({
-                              count: day.count,
-                              date: day.date,
-                              x: rect.left + rect.width / 2,
-                              top: rect.top - 8,
-                            })
-                          }}
-                          onMouseLeave={() => setHoveredCell(null)}
-                        />
-                      ))}
-                    </div>
-                  ))}
+                {/* Day labels + 53 Week Columns */}
+                <div className="streak-grid-wrapper">
+                  <div className="streak-day-labels">
+                    <span className="streak-day-label" />
+                    <span className="streak-day-label">Mon</span>
+                    <span className="streak-day-label" />
+                    <span className="streak-day-label">Wed</span>
+                    <span className="streak-day-label" />
+                    <span className="streak-day-label">Fri</span>
+                    <span className="streak-day-label" />
+                  </div>
+
+                  <div className="streak-grid">
+                    {githubRealStreak.weeks.map((week, wIdx) => (
+                      <div key={wIdx} className="streak-col">
+                        {week.map((day) => (
+                          <div
+                            key={day.row}
+                            className={`streak-cell level-${day.level}`}
+                            title={day.tip || `${day.count} contributions on ${day.formattedDate}`}
+                            onMouseEnter={(e) => {
+                              const rect = e.currentTarget.getBoundingClientRect()
+                              setHoveredCell({
+                                count: day.count,
+                                date: day.formattedDate,
+                                tip: day.tip,
+                                x: rect.left + rect.width / 2,
+                                top: rect.top - 8,
+                              })
+                            }}
+                            onMouseLeave={() => setHoveredCell(null)}
+                          />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Custom scrollbar track matching reference image */}
+            {/* Custom scrollbar track */}
             <div className="streak-scrollbar-track">
               <div className="streak-scrollbar-thumb" />
             </div>
@@ -554,15 +493,15 @@ function StatsView() {
           {/* FOOTER ROW */}
           <div className="streak-footer-row">
             <div className="streak-count-label">
-              <span>4575 activities in past 12 months</span>
+              <span>{totalContributions} contributions in the last year</span>
             </div>
             <div className="streak-legend">
               <span className="legend-label">Less</span>
-              <span className="streak-cell level-0" title="0 activities" />
-              <span className="streak-cell level-1" title="1-3 activities" />
-              <span className="streak-cell level-2" title="4-8 activities" />
-              <span className="streak-cell level-3" title="9-14 activities" />
-              <span className="streak-cell level-4" title="15+ activities" />
+              <span className="streak-cell level-0" title="No contributions" />
+              <span className="streak-cell level-1" title="1-3 contributions" />
+              <span className="streak-cell level-2" title="4-8 contributions" />
+              <span className="streak-cell level-3" title="9-14 contributions" />
+              <span className="streak-cell level-4" title="15+ contributions" />
               <span className="legend-label">More</span>
             </div>
           </div>
@@ -574,7 +513,13 @@ function StatsView() {
             className="streak-tooltip-bubble"
             style={{ left: `${hoveredCell.x}px`, top: `${hoveredCell.top}px` }}
           >
-            <strong>{hoveredCell.count} activities</strong> on {hoveredCell.date}
+            {hoveredCell.count > 0 ? (
+              <>
+                <strong>{hoveredCell.count} {hoveredCell.count === 1 ? 'contribution' : 'contributions'}</strong> on {hoveredCell.date}
+              </>
+            ) : (
+              <>No contributions on {hoveredCell.date}</>
+            )}
           </div>
         )}
       </div>

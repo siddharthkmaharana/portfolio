@@ -918,21 +918,21 @@
 }
 
 .streak-calendar-content {
-  min-width: 685px;
+  min-width: 820px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .streak-months-row {
   position: relative;
   height: 18px;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .streak-month-label {
   position: absolute;
-  font-size: 12px;
+  font-size: 11px;
   color: #8b949e;
   font-weight: 500;
   user-select: none;
@@ -942,9 +942,36 @@
   color: #57606a;
 }
 
+.streak-grid-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.streak-day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5px;
+  width: 24px;
+  padding-top: 1px;
+}
+
+.streak-day-label {
+  height: 11px;
+  line-height: 11px;
+  font-size: 9.5px;
+  color: #8b949e;
+  font-weight: 500;
+  user-select: none;
+}
+
+.light .streak-day-label {
+  color: #57606a;
+}
+
 .streak-grid {
   display: grid;
-  grid-template-columns: repeat(44, 12px);
+  grid-template-columns: repeat(53, 11px);
   gap: 3.5px;
   align-items: center;
 }
@@ -956,9 +983,9 @@
 }
 
 .streak-cell {
-  width: 12px;
-  height: 12px;
-  border-radius: 2.5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
   transition: transform 0.15s ease, filter 0.15s ease, outline 0.15s ease;
   cursor: pointer;
   position: relative;
