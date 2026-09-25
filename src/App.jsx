@@ -48,7 +48,7 @@ function App() {
 
             {/* TAB BODY VIEWS */}
             <div className="content-body">
-              {activeTab === 'Projects' && <Projects />}
+              {activeTab === 'Projects' && <Projects dark={dark} />}
               {activeTab === 'Experience' && <Experience />}
               {activeTab === 'TIL' && <TIL />}
               {activeTab === 'Designs' && <Designs />}

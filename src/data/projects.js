@@ -1,7 +1,14 @@
 /**
  * PROJECTS DATA
  * Edit this file to add, remove, or modify your portfolio projects.
+ * For theme-specific images:
+ * - `image`: image shown in Dark Mode (e.g. _DM)
+ * - `image2`: image shown in Light Mode (e.g. _LM)
  */
+
+import cortexaDM from '../assets/Cortexa_DM.png'
+import cortexaLM from '../assets/Cortexa_LM.png'
+import merkleVisualizer from '../assets/Merkle_Tree_visualizer.png'
 
 export const projects = [
   {
@@ -12,7 +19,8 @@ export const projects = [
     features: 'Real-time object detection, OCR, barcode scanning, scene understanding, voice interaction, and persistent memory.',
     source: 'https://github.com/siddharthkmaharana/Cortexa',
     accent: 'coral',
-    image: '/projects/cortexa.jpg',
+    image: cortexaDM,  // Dark Mode image (_DM)
+    image2: cortexaLM, // Light Mode image (_LM)
   },
   {
     title: 'Merkle Tree Visualizer',
@@ -23,7 +31,7 @@ export const projects = [
     live: 'https://wanderlustt-ziz3.onrender.com/',
     source: 'https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer',
     accent: 'mint',
-    image: '/projects/merkle.jpg',
+    image: merkleVisualizer,
   },
   {
     title: 'Integrated Food Delivery & Dine-Out Platform',

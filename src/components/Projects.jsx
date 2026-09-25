@@ -4,9 +4,21 @@ import initialProjects from '../data/projects'
 
 const externalProps = { target: '_blank', rel: 'noreferrer' }
 
-export function Projects({ projects = initialProjects }) {
+export function Projects({ projects = initialProjects, dark = true }) {
   const [query, setQuery] = useState('')
   const [selectedProject, setSelectedProject] = useState(null)
+
+  const getImage = (project) => {
+    let src =
+      !dark && (project.image2 || project.imageLight || project.image_lm)
+        ? (project.image2 || project.imageLight || project.image_lm)
+        : (project.image || project.imageDark || project.image_dm)
+
+    if (typeof src === 'string' && src.startsWith('src/')) {
+      src = '/' + src
+    }
+    return src
+  }
 
   const filteredProjects = useMemo(() => {
     const normalizedQuery = query.toLowerCase().trim()
@@ -100,10 +112,10 @@ export function Projects({ projects = initialProjects }) {
             </div>
 
             {/* RIGHT HALF: PREVIEW IMAGE */}
-            {project.image && (
+            {(project.image || project.image2) && (
               <div className="project-preview-box">
                 <img
-                  src={project.image}
+                  src={getImage(project)}
                   alt={project.title}
                   className="project-preview-image"
                 />
