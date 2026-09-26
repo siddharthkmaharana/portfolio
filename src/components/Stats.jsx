@@ -1,5 +1,5 @@
-import { useLayoutEffect, useEffect, useRef, useState } from 'react'
-import { ArrowUpRight, GitBranch } from 'lucide-react'
+import { useLayoutEffect, useEffect, useRef, useState, useCallback } from 'react'
+import { ArrowUpRight, GitBranch, Flame, Zap, RotateCw } from 'lucide-react'
 import { statsData } from '../data/stats'
 
 const externalProps = { target: '_blank', rel: 'noreferrer' }
@@ -7,17 +7,140 @@ const externalProps = { target: '_blank', rel: 'noreferrer' }
 export function Stats({ data = statsData }) {
   const [hoveredCell, setHoveredCell] = useState(null)
   const scrollRef = useRef(null)
-  const streak = data.realStreak || {}
-  const totalContributions = streak.total || '449'
   const username = data.githubUsername || 'siddharthkmaharana'
   const profileUrl = data.githubProfileUrl || `https://github.com/${username}`
+
+  const [streak, setStreak] = useState(() => {
+    try {
+      const cached = localStorage.getItem(`gh_streak_${username}`)
+      if (cached) {
+        const parsed = JSON.parse(cached)
+        if (Date.now() - parsed.timestamp < 10 * 60 * 1000) {
+          return parsed.data
+        }
+      }
+    } catch (e) {}
+    return data.realStreak || {}
+  })
+
+  const [isSyncing, setIsSyncing] = useState(false)
+  const [lastSynced, setLastSynced] = useState(() => {
+    return streak.lastUpdated ? new Date(streak.lastUpdated) : null
+  })
+
+  const syncWithGithub = useCallback(async (showLoading = true) => {
+    if (showLoading) setIsSyncing(true)
+    try {
+      const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`, {
+        headers: { Accept: 'application/json' },
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const json = await res.json()
+      const days = json.contributions
+      if (!Array.isArray(days) || days.length === 0) throw new Error('Invalid contributions data')
+
+      // Streaks calculation
+      let currentStreak = 0
+      let maxStreak = 0
+      let tempStreak = 0
+
+      for (let i = 0; i < days.length; i++) {
+        if (days[i].count > 0) {
+          tempStreak++
+          if (tempStreak > maxStreak) maxStreak = tempStreak
+        } else {
+          tempStreak = 0
+        }
+      }
+
+      const lastIndex = days.length - 1
+      let startIndex = -1
+      if (days[lastIndex] && days[lastIndex].count > 0) {
+        startIndex = lastIndex
+      } else if (days[lastIndex - 1] && days[lastIndex - 1].count > 0) {
+        startIndex = lastIndex - 1
+      }
+
+      if (startIndex !== -1) {
+        for (let i = startIndex; i >= 0; i--) {
+          if (days[i].count > 0) {
+            currentStreak++
+          } else {
+            break
+          }
+        }
+      }
+
+      const weeks = []
+      const monthHeaders = []
+      let lastMonth = null
+
+      for (let w = 0; w < Math.floor(days.length / 7); w++) {
+        const weekDays = days.slice(w * 7, (w + 1) * 7)
+        const week = weekDays.map((d, row) => {
+          const parts = d.date.split('-')
+          const dObj = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)))
+          const formattedDate = dObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+          const tip = d.count === 0 ? 'No contributions' : d.count === 1 ? '1 contribution' : `${d.count} contributions`
+          return {
+            row,
+            col: w,
+            date: d.date,
+            formattedDate,
+            level: d.level,
+            count: d.count,
+            tip: `${tip} on ${formattedDate}`,
+          }
+        })
+        weeks.push(week)
+
+        const weekStart = days[w * 7]
+        const month = new Date(weekStart.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
+        if (month !== lastMonth) {
+          monthHeaders.push({ name: month, col: w })
+          lastMonth = month
+        }
+      }
+
+      const newStreakData = {
+        total: json.total?.lastYear ?? days.reduce((sum, d) => sum + d.count, 0),
+        currentStreak,
+        longestStreak: maxStreak,
+        monthHeaders,
+        weeks,
+        lastUpdated: new Date().toISOString(),
+      }
+
+      setStreak(newStreakData)
+      setLastSynced(new Date())
+      try {
+        localStorage.setItem(`gh_streak_${username}`, JSON.stringify({
+          data: newStreakData,
+          timestamp: Date.now(),
+        }))
+      } catch (e) {}
+    } catch (err) {
+      console.warn('Live GitHub streak sync failed, using cached/static data:', err)
+    } finally {
+      if (showLoading) setIsSyncing(false)
+    }
+  }, [username])
+
+  // Sync with GitHub on mount
+  useEffect(() => {
+    syncWithGithub(false)
+  }, [syncWithGithub])
+
+  const totalContributions = streak.total ?? '454'
+  const currentStreak = streak.currentStreak ?? 3
+  const longestStreak = streak.longestStreak ?? 14
 
   // Automatically scroll to the right edge on mount so recent contributions are shown first
   useLayoutEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
     }
-  }, [])
+  }, [streak])
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
@@ -35,7 +158,7 @@ export function Stats({ data = statsData }) {
       cancelAnimationFrame(frame)
       clearTimeout(timer)
     }
-  }, [])
+  }, [streak])
 
   return (
     <div className="view stats-view">
@@ -45,11 +168,35 @@ export function Stats({ data = statsData }) {
           {/* HEADER */}
           <div className="github-contributions-header">
             <div className="github-contributions-title-area">
-              <h2 className="github-contributions-title">GitHub Contributions</h2>
-              <p className="github-contributions-subtitle">
-                {totalContributions} contributions in the last year
-              </p>
+              <div className="github-title-top-row">
+                <h2 className="github-contributions-title">GitHub Contributions & Streak</h2>
+                <button
+                  type="button"
+                  className={`streak-sync-btn ${isSyncing ? 'syncing' : ''}`}
+                  onClick={() => syncWithGithub(true)}
+                  title="Click to sync live with GitHub"
+                  aria-label="Sync with GitHub"
+                >
+                  <RotateCw size={11} className={isSyncing ? 'spinning' : ''} />
+                  <span>{isSyncing ? 'Syncing...' : 'Live'}</span>
+                </button>
+              </div>
+
+              <div className="streak-metrics-row">
+                <span className="streak-metric-badge current-streak" title="Consecutive days with contributions">
+                  <Flame size={13} />
+                  <span>Current: <strong>{currentStreak} {currentStreak === 1 ? 'day' : 'days'}</strong></span>
+                </span>
+                <span className="streak-metric-badge longest-streak" title="Longest contribution streak">
+                  <Zap size={13} />
+                  <span>Longest: <strong>{longestStreak} days</strong></span>
+                </span>
+                <span className="streak-metric-badge total-badge" title="Total contributions in the last year">
+                  <span>Total: <strong>{totalContributions}</strong></span>
+                </span>
+              </div>
             </div>
+
             <a
               href={profileUrl}
               {...externalProps}

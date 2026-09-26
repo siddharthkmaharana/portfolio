@@ -30,7 +30,14 @@
 .github-contributions-title-area {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+}
+
+.github-title-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .github-contributions-title {
@@ -41,10 +48,94 @@
   letter-spacing: -0.02em;
 }
 
-.github-contributions-subtitle {
-  font-size: 13.5px;
+/* STREAK METRICS BADGES ROW */
+.streak-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.streak-metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 500;
   color: var(--text-muted);
-  margin: 0;
+  background: var(--pill-bg);
+  border: 1px solid var(--border);
+}
+
+.streak-metric-badge strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.streak-metric-badge.current-streak {
+  background: rgba(255, 107, 0, 0.08);
+  border-color: rgba(255, 107, 0, 0.25);
+  color: #ff7828;
+}
+
+.streak-metric-badge.current-streak strong {
+  color: #ff7828;
+}
+
+.streak-metric-badge.longest-streak {
+  background: rgba(255, 184, 0, 0.08);
+  border-color: rgba(255, 184, 0, 0.25);
+  color: #ffb800;
+}
+
+.streak-metric-badge.longest-streak strong {
+  color: #ffb800;
+}
+
+.light .streak-metric-badge.longest-streak {
+  background: rgba(217, 119, 6, 0.08);
+  border-color: rgba(217, 119, 6, 0.25);
+  color: #b45309;
+}
+
+.light .streak-metric-badge.longest-streak strong {
+  color: #b45309;
+}
+
+.streak-sync-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.streak-sync-btn:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.streak-sync-btn.syncing {
+  opacity: 0.8;
+  cursor: wait;
+}
+
+.spinning {
+  animation: streak-spin 0.8s linear infinite;
+}
+
+@keyframes streak-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .github-profile-link-btn {

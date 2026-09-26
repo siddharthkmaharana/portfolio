@@ -124,16 +124,6 @@ export function PersonalInfo({ dark, setDark, onScheduleCall }) {
               <span className="x-symbol">𝕏</span>
             </a>
           )}
-          {personalInfo.contact.emailComposeUrl && (
-            <a
-              href={personalInfo.contact.emailComposeUrl}
-              {...externalProps}
-              aria-label="Email"
-              title="Email"
-            >
-              <Mail size={16} />
-            </a>
-          )}
           {personalInfo.contact.phone && (
             <a
               href={`tel:${personalInfo.contact.phone}`}

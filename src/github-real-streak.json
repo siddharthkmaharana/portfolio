@@ -1,57 +1,59 @@
 {
-  "total": "449",
+  "total": 454,
+  "currentStreak": 3,
+  "longestStreak": 14,
   "monthHeaders": [
     {
       "name": "Sep",
-      "col": 1
+      "col": 0
     },
     {
       "name": "Oct",
-      "col": 3
+      "col": 2
     },
     {
       "name": "Nov",
-      "col": 7
+      "col": 6
     },
     {
       "name": "Dec",
-      "col": 12
+      "col": 11
     },
     {
       "name": "Jan",
-      "col": 16
+      "col": 15
     },
     {
       "name": "Feb",
-      "col": 20
+      "col": 19
     },
     {
       "name": "Mar",
-      "col": 24
+      "col": 23
     },
     {
       "name": "Apr",
-      "col": 29
+      "col": 28
     },
     {
       "name": "May",
-      "col": 33
+      "col": 32
     },
     {
       "name": "Jun",
-      "col": 38
+      "col": 37
     },
     {
       "name": "Jul",
-      "col": 42
+      "col": 41
     },
     {
       "name": "Aug",
-      "col": 46
+      "col": 45
     },
     {
       "name": "Sep",
-      "col": 51
+      "col": 50
     }
   ],
   "weeks": [
@@ -63,7 +65,7 @@
         "formattedDate": "Sep 21, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 21st."
+        "tip": "No contributions on Sep 21, 2025"
       },
       {
         "row": 1,
@@ -72,7 +74,7 @@
         "formattedDate": "Sep 22, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 22nd."
+        "tip": "No contributions on Sep 22, 2025"
       },
       {
         "row": 2,
@@ -81,7 +83,7 @@
         "formattedDate": "Sep 23, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 23rd."
+        "tip": "No contributions on Sep 23, 2025"
       },
       {
         "row": 3,
@@ -90,7 +92,7 @@
         "formattedDate": "Sep 24, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 24th."
+        "tip": "No contributions on Sep 24, 2025"
       },
       {
         "row": 4,
@@ -99,7 +101,7 @@
         "formattedDate": "Sep 25, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 25th."
+        "tip": "No contributions on Sep 25, 2025"
       },
       {
         "row": 5,
@@ -108,7 +110,7 @@
         "formattedDate": "Sep 26, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 26th."
+        "tip": "No contributions on Sep 26, 2025"
       },
       {
         "row": 6,
@@ -117,7 +119,7 @@
         "formattedDate": "Sep 27, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 27th."
+        "tip": "No contributions on Sep 27, 2025"
       }
     ],
     [
@@ -128,7 +130,7 @@
         "formattedDate": "Sep 28, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 28th."
+        "tip": "No contributions on Sep 28, 2025"
       },
       {
         "row": 1,
@@ -137,7 +139,7 @@
         "formattedDate": "Sep 29, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 29th."
+        "tip": "No contributions on Sep 29, 2025"
       },
       {
         "row": 2,
@@ -146,7 +148,7 @@
         "formattedDate": "Sep 30, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 30th."
+        "tip": "No contributions on Sep 30, 2025"
       },
       {
         "row": 3,
@@ -155,7 +157,7 @@
         "formattedDate": "Oct 1, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 1st."
+        "tip": "No contributions on Oct 1, 2025"
       },
       {
         "row": 4,
@@ -164,7 +166,7 @@
         "formattedDate": "Oct 2, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 2nd."
+        "tip": "No contributions on Oct 2, 2025"
       },
       {
         "row": 5,
@@ -173,7 +175,7 @@
         "formattedDate": "Oct 3, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 3rd."
+        "tip": "No contributions on Oct 3, 2025"
       },
       {
         "row": 6,
@@ -182,7 +184,7 @@
         "formattedDate": "Oct 4, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 4th."
+        "tip": "No contributions on Oct 4, 2025"
       }
     ],
     [
@@ -193,7 +195,7 @@
         "formattedDate": "Oct 5, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 5th."
+        "tip": "No contributions on Oct 5, 2025"
       },
       {
         "row": 1,
@@ -202,7 +204,7 @@
         "formattedDate": "Oct 6, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 6th."
+        "tip": "No contributions on Oct 6, 2025"
       },
       {
         "row": 2,
@@ -211,7 +213,7 @@
         "formattedDate": "Oct 7, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 7th."
+        "tip": "No contributions on Oct 7, 2025"
       },
       {
         "row": 3,
@@ -220,7 +222,7 @@
         "formattedDate": "Oct 8, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 8th."
+        "tip": "No contributions on Oct 8, 2025"
       },
       {
         "row": 4,
@@ -229,7 +231,7 @@
         "formattedDate": "Oct 9, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 9th."
+        "tip": "No contributions on Oct 9, 2025"
       },
       {
         "row": 5,
@@ -238,7 +240,7 @@
         "formattedDate": "Oct 10, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 10th."
+        "tip": "No contributions on Oct 10, 2025"
       },
       {
         "row": 6,
@@ -247,7 +249,7 @@
         "formattedDate": "Oct 11, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 11th."
+        "tip": "No contributions on Oct 11, 2025"
       }
     ],
     [
@@ -258,7 +260,7 @@
         "formattedDate": "Oct 12, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 12th."
+        "tip": "No contributions on Oct 12, 2025"
       },
       {
         "row": 1,
@@ -267,7 +269,7 @@
         "formattedDate": "Oct 13, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 13th."
+        "tip": "No contributions on Oct 13, 2025"
       },
       {
         "row": 2,
@@ -276,7 +278,7 @@
         "formattedDate": "Oct 14, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 14th."
+        "tip": "No contributions on Oct 14, 2025"
       },
       {
         "row": 3,
@@ -285,7 +287,7 @@
         "formattedDate": "Oct 15, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 15th."
+        "tip": "No contributions on Oct 15, 2025"
       },
       {
         "row": 4,
@@ -294,7 +296,7 @@
         "formattedDate": "Oct 16, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 16th."
+        "tip": "No contributions on Oct 16, 2025"
       },
       {
         "row": 5,
@@ -303,7 +305,7 @@
         "formattedDate": "Oct 17, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 17th."
+        "tip": "No contributions on Oct 17, 2025"
       },
       {
         "row": 6,
@@ -312,7 +314,7 @@
         "formattedDate": "Oct 18, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 18th."
+        "tip": "No contributions on Oct 18, 2025"
       }
     ],
     [
@@ -323,7 +325,7 @@
         "formattedDate": "Oct 19, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 19th."
+        "tip": "No contributions on Oct 19, 2025"
       },
       {
         "row": 1,
@@ -332,7 +334,7 @@
         "formattedDate": "Oct 20, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 20th."
+        "tip": "No contributions on Oct 20, 2025"
       },
       {
         "row": 2,
@@ -341,7 +343,7 @@
         "formattedDate": "Oct 21, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 21st."
+        "tip": "No contributions on Oct 21, 2025"
       },
       {
         "row": 3,
@@ -350,7 +352,7 @@
         "formattedDate": "Oct 22, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 22nd."
+        "tip": "No contributions on Oct 22, 2025"
       },
       {
         "row": 4,
@@ -359,7 +361,7 @@
         "formattedDate": "Oct 23, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 23rd."
+        "tip": "No contributions on Oct 23, 2025"
       },
       {
         "row": 5,
@@ -368,7 +370,7 @@
         "formattedDate": "Oct 24, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 24th."
+        "tip": "No contributions on Oct 24, 2025"
       },
       {
         "row": 6,
@@ -377,7 +379,7 @@
         "formattedDate": "Oct 25, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 25th."
+        "tip": "No contributions on Oct 25, 2025"
       }
     ],
     [
@@ -388,7 +390,7 @@
         "formattedDate": "Oct 26, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 26th."
+        "tip": "No contributions on Oct 26, 2025"
       },
       {
         "row": 1,
@@ -397,7 +399,7 @@
         "formattedDate": "Oct 27, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 27th."
+        "tip": "No contributions on Oct 27, 2025"
       },
       {
         "row": 2,
@@ -406,7 +408,7 @@
         "formattedDate": "Oct 28, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 28th."
+        "tip": "No contributions on Oct 28, 2025"
       },
       {
         "row": 3,
@@ -415,7 +417,7 @@
         "formattedDate": "Oct 29, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 29th."
+        "tip": "No contributions on Oct 29, 2025"
       },
       {
         "row": 4,
@@ -424,7 +426,7 @@
         "formattedDate": "Oct 30, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 30th."
+        "tip": "No contributions on Oct 30, 2025"
       },
       {
         "row": 5,
@@ -433,7 +435,7 @@
         "formattedDate": "Oct 31, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on October 31st."
+        "tip": "No contributions on Oct 31, 2025"
       },
       {
         "row": 6,
@@ -442,7 +444,7 @@
         "formattedDate": "Nov 1, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 1st."
+        "tip": "No contributions on Nov 1, 2025"
       }
     ],
     [
@@ -453,7 +455,7 @@
         "formattedDate": "Nov 2, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 2nd."
+        "tip": "No contributions on Nov 2, 2025"
       },
       {
         "row": 1,
@@ -462,7 +464,7 @@
         "formattedDate": "Nov 3, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 3rd."
+        "tip": "No contributions on Nov 3, 2025"
       },
       {
         "row": 2,
@@ -471,7 +473,7 @@
         "formattedDate": "Nov 4, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 4th."
+        "tip": "No contributions on Nov 4, 2025"
       },
       {
         "row": 3,
@@ -480,7 +482,7 @@
         "formattedDate": "Nov 5, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 5th."
+        "tip": "No contributions on Nov 5, 2025"
       },
       {
         "row": 4,
@@ -489,7 +491,7 @@
         "formattedDate": "Nov 6, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 6th."
+        "tip": "No contributions on Nov 6, 2025"
       },
       {
         "row": 5,
@@ -498,7 +500,7 @@
         "formattedDate": "Nov 7, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 7th."
+        "tip": "No contributions on Nov 7, 2025"
       },
       {
         "row": 6,
@@ -507,7 +509,7 @@
         "formattedDate": "Nov 8, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 8th."
+        "tip": "No contributions on Nov 8, 2025"
       }
     ],
     [
@@ -518,7 +520,7 @@
         "formattedDate": "Nov 9, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 9th."
+        "tip": "No contributions on Nov 9, 2025"
       },
       {
         "row": 1,
@@ -527,7 +529,7 @@
         "formattedDate": "Nov 10, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 10th."
+        "tip": "No contributions on Nov 10, 2025"
       },
       {
         "row": 2,
@@ -536,7 +538,7 @@
         "formattedDate": "Nov 11, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 11th."
+        "tip": "No contributions on Nov 11, 2025"
       },
       {
         "row": 3,
@@ -545,7 +547,7 @@
         "formattedDate": "Nov 12, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 12th."
+        "tip": "No contributions on Nov 12, 2025"
       },
       {
         "row": 4,
@@ -554,7 +556,7 @@
         "formattedDate": "Nov 13, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 13th."
+        "tip": "No contributions on Nov 13, 2025"
       },
       {
         "row": 5,
@@ -563,7 +565,7 @@
         "formattedDate": "Nov 14, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 14th."
+        "tip": "No contributions on Nov 14, 2025"
       },
       {
         "row": 6,
@@ -572,7 +574,7 @@
         "formattedDate": "Nov 15, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 15th."
+        "tip": "No contributions on Nov 15, 2025"
       }
     ],
     [
@@ -583,7 +585,7 @@
         "formattedDate": "Nov 16, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 16th."
+        "tip": "No contributions on Nov 16, 2025"
       },
       {
         "row": 1,
@@ -592,7 +594,7 @@
         "formattedDate": "Nov 17, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 17th."
+        "tip": "No contributions on Nov 17, 2025"
       },
       {
         "row": 2,
@@ -601,7 +603,7 @@
         "formattedDate": "Nov 18, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 18th."
+        "tip": "No contributions on Nov 18, 2025"
       },
       {
         "row": 3,
@@ -610,7 +612,7 @@
         "formattedDate": "Nov 19, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 19th."
+        "tip": "No contributions on Nov 19, 2025"
       },
       {
         "row": 4,
@@ -619,7 +621,7 @@
         "formattedDate": "Nov 20, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 20th."
+        "tip": "No contributions on Nov 20, 2025"
       },
       {
         "row": 5,
@@ -628,7 +630,7 @@
         "formattedDate": "Nov 21, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 21st."
+        "tip": "No contributions on Nov 21, 2025"
       },
       {
         "row": 6,
@@ -637,7 +639,7 @@
         "formattedDate": "Nov 22, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 22nd."
+        "tip": "No contributions on Nov 22, 2025"
       }
     ],
     [
@@ -648,7 +650,7 @@
         "formattedDate": "Nov 23, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 23rd."
+        "tip": "No contributions on Nov 23, 2025"
       },
       {
         "row": 1,
@@ -657,7 +659,7 @@
         "formattedDate": "Nov 24, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 24th."
+        "tip": "No contributions on Nov 24, 2025"
       },
       {
         "row": 2,
@@ -666,7 +668,7 @@
         "formattedDate": "Nov 25, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 25th."
+        "tip": "No contributions on Nov 25, 2025"
       },
       {
         "row": 3,
@@ -675,7 +677,7 @@
         "formattedDate": "Nov 26, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 26th."
+        "tip": "No contributions on Nov 26, 2025"
       },
       {
         "row": 4,
@@ -684,7 +686,7 @@
         "formattedDate": "Nov 27, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 27th."
+        "tip": "No contributions on Nov 27, 2025"
       },
       {
         "row": 5,
@@ -693,7 +695,7 @@
         "formattedDate": "Nov 28, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 28th."
+        "tip": "No contributions on Nov 28, 2025"
       },
       {
         "row": 6,
@@ -702,7 +704,7 @@
         "formattedDate": "Nov 29, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 29th."
+        "tip": "No contributions on Nov 29, 2025"
       }
     ],
     [
@@ -713,7 +715,7 @@
         "formattedDate": "Nov 30, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on November 30th."
+        "tip": "No contributions on Nov 30, 2025"
       },
       {
         "row": 1,
@@ -722,7 +724,7 @@
         "formattedDate": "Dec 1, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 1st."
+        "tip": "No contributions on Dec 1, 2025"
       },
       {
         "row": 2,
@@ -731,7 +733,7 @@
         "formattedDate": "Dec 2, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 2nd."
+        "tip": "No contributions on Dec 2, 2025"
       },
       {
         "row": 3,
@@ -740,7 +742,7 @@
         "formattedDate": "Dec 3, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 3rd."
+        "tip": "No contributions on Dec 3, 2025"
       },
       {
         "row": 4,
@@ -749,7 +751,7 @@
         "formattedDate": "Dec 4, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 4th."
+        "tip": "No contributions on Dec 4, 2025"
       },
       {
         "row": 5,
@@ -758,7 +760,7 @@
         "formattedDate": "Dec 5, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 5th."
+        "tip": "No contributions on Dec 5, 2025"
       },
       {
         "row": 6,
@@ -767,7 +769,7 @@
         "formattedDate": "Dec 6, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 6th."
+        "tip": "No contributions on Dec 6, 2025"
       }
     ],
     [
@@ -778,7 +780,7 @@
         "formattedDate": "Dec 7, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 7th."
+        "tip": "No contributions on Dec 7, 2025"
       },
       {
         "row": 1,
@@ -787,7 +789,7 @@
         "formattedDate": "Dec 8, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 8th."
+        "tip": "No contributions on Dec 8, 2025"
       },
       {
         "row": 2,
@@ -796,7 +798,7 @@
         "formattedDate": "Dec 9, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 9th."
+        "tip": "No contributions on Dec 9, 2025"
       },
       {
         "row": 3,
@@ -805,7 +807,7 @@
         "formattedDate": "Dec 10, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 10th."
+        "tip": "No contributions on Dec 10, 2025"
       },
       {
         "row": 4,
@@ -814,7 +816,7 @@
         "formattedDate": "Dec 11, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 11th."
+        "tip": "No contributions on Dec 11, 2025"
       },
       {
         "row": 5,
@@ -823,7 +825,7 @@
         "formattedDate": "Dec 12, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 12th."
+        "tip": "No contributions on Dec 12, 2025"
       },
       {
         "row": 6,
@@ -832,7 +834,7 @@
         "formattedDate": "Dec 13, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 13th."
+        "tip": "No contributions on Dec 13, 2025"
       }
     ],
     [
@@ -843,7 +845,7 @@
         "formattedDate": "Dec 14, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 14th."
+        "tip": "No contributions on Dec 14, 2025"
       },
       {
         "row": 1,
@@ -852,7 +854,7 @@
         "formattedDate": "Dec 15, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 15th."
+        "tip": "No contributions on Dec 15, 2025"
       },
       {
         "row": 2,
@@ -861,7 +863,7 @@
         "formattedDate": "Dec 16, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 16th."
+        "tip": "No contributions on Dec 16, 2025"
       },
       {
         "row": 3,
@@ -870,7 +872,7 @@
         "formattedDate": "Dec 17, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 17th."
+        "tip": "No contributions on Dec 17, 2025"
       },
       {
         "row": 4,
@@ -879,7 +881,7 @@
         "formattedDate": "Dec 18, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 18th."
+        "tip": "No contributions on Dec 18, 2025"
       },
       {
         "row": 5,
@@ -888,7 +890,7 @@
         "formattedDate": "Dec 19, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 19th."
+        "tip": "No contributions on Dec 19, 2025"
       },
       {
         "row": 6,
@@ -897,7 +899,7 @@
         "formattedDate": "Dec 20, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 20th."
+        "tip": "No contributions on Dec 20, 2025"
       }
     ],
     [
@@ -908,7 +910,7 @@
         "formattedDate": "Dec 21, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 21st."
+        "tip": "No contributions on Dec 21, 2025"
       },
       {
         "row": 1,
@@ -917,7 +919,7 @@
         "formattedDate": "Dec 22, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 22nd."
+        "tip": "No contributions on Dec 22, 2025"
       },
       {
         "row": 2,
@@ -926,7 +928,7 @@
         "formattedDate": "Dec 23, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 23rd."
+        "tip": "No contributions on Dec 23, 2025"
       },
       {
         "row": 3,
@@ -935,7 +937,7 @@
         "formattedDate": "Dec 24, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 24th."
+        "tip": "No contributions on Dec 24, 2025"
       },
       {
         "row": 4,
@@ -944,7 +946,7 @@
         "formattedDate": "Dec 25, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 25th."
+        "tip": "No contributions on Dec 25, 2025"
       },
       {
         "row": 5,
@@ -953,7 +955,7 @@
         "formattedDate": "Dec 26, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 26th."
+        "tip": "No contributions on Dec 26, 2025"
       },
       {
         "row": 6,
@@ -962,7 +964,7 @@
         "formattedDate": "Dec 27, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 27th."
+        "tip": "No contributions on Dec 27, 2025"
       }
     ],
     [
@@ -973,7 +975,7 @@
         "formattedDate": "Dec 28, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 28th."
+        "tip": "No contributions on Dec 28, 2025"
       },
       {
         "row": 1,
@@ -982,7 +984,7 @@
         "formattedDate": "Dec 29, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 29th."
+        "tip": "No contributions on Dec 29, 2025"
       },
       {
         "row": 2,
@@ -991,7 +993,7 @@
         "formattedDate": "Dec 30, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 30th."
+        "tip": "No contributions on Dec 30, 2025"
       },
       {
         "row": 3,
@@ -1000,7 +1002,7 @@
         "formattedDate": "Dec 31, 2025",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on December 31st."
+        "tip": "No contributions on Dec 31, 2025"
       },
       {
         "row": 4,
@@ -1009,7 +1011,7 @@
         "formattedDate": "Jan 1, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on January 1st."
+        "tip": "1 contribution on Jan 1, 2026"
       },
       {
         "row": 5,
@@ -1018,7 +1020,7 @@
         "formattedDate": "Jan 2, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 2nd."
+        "tip": "No contributions on Jan 2, 2026"
       },
       {
         "row": 6,
@@ -1027,7 +1029,7 @@
         "formattedDate": "Jan 3, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 3rd."
+        "tip": "No contributions on Jan 3, 2026"
       }
     ],
     [
@@ -1038,7 +1040,7 @@
         "formattedDate": "Jan 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 4th."
+        "tip": "No contributions on Jan 4, 2026"
       },
       {
         "row": 1,
@@ -1047,7 +1049,7 @@
         "formattedDate": "Jan 5, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on January 5th."
+        "tip": "3 contributions on Jan 5, 2026"
       },
       {
         "row": 2,
@@ -1056,7 +1058,7 @@
         "formattedDate": "Jan 6, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 6th."
+        "tip": "No contributions on Jan 6, 2026"
       },
       {
         "row": 3,
@@ -1065,7 +1067,7 @@
         "formattedDate": "Jan 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 7th."
+        "tip": "No contributions on Jan 7, 2026"
       },
       {
         "row": 4,
@@ -1074,7 +1076,7 @@
         "formattedDate": "Jan 8, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 8th."
+        "tip": "No contributions on Jan 8, 2026"
       },
       {
         "row": 5,
@@ -1083,7 +1085,7 @@
         "formattedDate": "Jan 9, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 9th."
+        "tip": "No contributions on Jan 9, 2026"
       },
       {
         "row": 6,
@@ -1092,7 +1094,7 @@
         "formattedDate": "Jan 10, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 10th."
+        "tip": "No contributions on Jan 10, 2026"
       }
     ],
     [
@@ -1103,7 +1105,7 @@
         "formattedDate": "Jan 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 11th."
+        "tip": "No contributions on Jan 11, 2026"
       },
       {
         "row": 1,
@@ -1112,7 +1114,7 @@
         "formattedDate": "Jan 12, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 12th."
+        "tip": "No contributions on Jan 12, 2026"
       },
       {
         "row": 2,
@@ -1121,7 +1123,7 @@
         "formattedDate": "Jan 13, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 13th."
+        "tip": "No contributions on Jan 13, 2026"
       },
       {
         "row": 3,
@@ -1130,7 +1132,7 @@
         "formattedDate": "Jan 14, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 14th."
+        "tip": "No contributions on Jan 14, 2026"
       },
       {
         "row": 4,
@@ -1139,7 +1141,7 @@
         "formattedDate": "Jan 15, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on January 15th."
+        "tip": "3 contributions on Jan 15, 2026"
       },
       {
         "row": 5,
@@ -1148,7 +1150,7 @@
         "formattedDate": "Jan 16, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 16th."
+        "tip": "No contributions on Jan 16, 2026"
       },
       {
         "row": 6,
@@ -1157,7 +1159,7 @@
         "formattedDate": "Jan 17, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 17th."
+        "tip": "No contributions on Jan 17, 2026"
       }
     ],
     [
@@ -1168,7 +1170,7 @@
         "formattedDate": "Jan 18, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 18th."
+        "tip": "No contributions on Jan 18, 2026"
       },
       {
         "row": 1,
@@ -1177,7 +1179,7 @@
         "formattedDate": "Jan 19, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 19th."
+        "tip": "No contributions on Jan 19, 2026"
       },
       {
         "row": 2,
@@ -1186,7 +1188,7 @@
         "formattedDate": "Jan 20, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 20th."
+        "tip": "No contributions on Jan 20, 2026"
       },
       {
         "row": 3,
@@ -1195,7 +1197,7 @@
         "formattedDate": "Jan 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 21st."
+        "tip": "No contributions on Jan 21, 2026"
       },
       {
         "row": 4,
@@ -1204,7 +1206,7 @@
         "formattedDate": "Jan 22, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 22nd."
+        "tip": "No contributions on Jan 22, 2026"
       },
       {
         "row": 5,
@@ -1213,7 +1215,7 @@
         "formattedDate": "Jan 23, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 23rd."
+        "tip": "No contributions on Jan 23, 2026"
       },
       {
         "row": 6,
@@ -1222,7 +1224,7 @@
         "formattedDate": "Jan 24, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 24th."
+        "tip": "No contributions on Jan 24, 2026"
       }
     ],
     [
@@ -1233,7 +1235,7 @@
         "formattedDate": "Jan 25, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 25th."
+        "tip": "No contributions on Jan 25, 2026"
       },
       {
         "row": 1,
@@ -1242,7 +1244,7 @@
         "formattedDate": "Jan 26, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 26th."
+        "tip": "No contributions on Jan 26, 2026"
       },
       {
         "row": 2,
@@ -1251,7 +1253,7 @@
         "formattedDate": "Jan 27, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 27th."
+        "tip": "No contributions on Jan 27, 2026"
       },
       {
         "row": 3,
@@ -1260,7 +1262,7 @@
         "formattedDate": "Jan 28, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 28th."
+        "tip": "No contributions on Jan 28, 2026"
       },
       {
         "row": 4,
@@ -1269,7 +1271,7 @@
         "formattedDate": "Jan 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 29th."
+        "tip": "No contributions on Jan 29, 2026"
       },
       {
         "row": 5,
@@ -1278,7 +1280,7 @@
         "formattedDate": "Jan 30, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 30th."
+        "tip": "No contributions on Jan 30, 2026"
       },
       {
         "row": 6,
@@ -1287,7 +1289,7 @@
         "formattedDate": "Jan 31, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on January 31st."
+        "tip": "No contributions on Jan 31, 2026"
       }
     ],
     [
@@ -1298,7 +1300,7 @@
         "formattedDate": "Feb 1, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 1st."
+        "tip": "No contributions on Feb 1, 2026"
       },
       {
         "row": 1,
@@ -1307,7 +1309,7 @@
         "formattedDate": "Feb 2, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 2nd."
+        "tip": "No contributions on Feb 2, 2026"
       },
       {
         "row": 2,
@@ -1316,7 +1318,7 @@
         "formattedDate": "Feb 3, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 3rd."
+        "tip": "No contributions on Feb 3, 2026"
       },
       {
         "row": 3,
@@ -1325,7 +1327,7 @@
         "formattedDate": "Feb 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 4th."
+        "tip": "No contributions on Feb 4, 2026"
       },
       {
         "row": 4,
@@ -1334,7 +1336,7 @@
         "formattedDate": "Feb 5, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 5th."
+        "tip": "No contributions on Feb 5, 2026"
       },
       {
         "row": 5,
@@ -1343,7 +1345,7 @@
         "formattedDate": "Feb 6, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 6th."
+        "tip": "No contributions on Feb 6, 2026"
       },
       {
         "row": 6,
@@ -1352,7 +1354,7 @@
         "formattedDate": "Feb 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 7th."
+        "tip": "No contributions on Feb 7, 2026"
       }
     ],
     [
@@ -1363,7 +1365,7 @@
         "formattedDate": "Feb 8, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 8th."
+        "tip": "No contributions on Feb 8, 2026"
       },
       {
         "row": 1,
@@ -1372,7 +1374,7 @@
         "formattedDate": "Feb 9, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 9th."
+        "tip": "No contributions on Feb 9, 2026"
       },
       {
         "row": 2,
@@ -1381,7 +1383,7 @@
         "formattedDate": "Feb 10, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 10th."
+        "tip": "No contributions on Feb 10, 2026"
       },
       {
         "row": 3,
@@ -1390,7 +1392,7 @@
         "formattedDate": "Feb 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 11th."
+        "tip": "No contributions on Feb 11, 2026"
       },
       {
         "row": 4,
@@ -1399,7 +1401,7 @@
         "formattedDate": "Feb 12, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 12th."
+        "tip": "No contributions on Feb 12, 2026"
       },
       {
         "row": 5,
@@ -1408,7 +1410,7 @@
         "formattedDate": "Feb 13, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 13th."
+        "tip": "No contributions on Feb 13, 2026"
       },
       {
         "row": 6,
@@ -1417,7 +1419,7 @@
         "formattedDate": "Feb 14, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on February 14th."
+        "tip": "4 contributions on Feb 14, 2026"
       }
     ],
     [
@@ -1428,7 +1430,7 @@
         "formattedDate": "Feb 15, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 15th."
+        "tip": "No contributions on Feb 15, 2026"
       },
       {
         "row": 1,
@@ -1437,7 +1439,7 @@
         "formattedDate": "Feb 16, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 16th."
+        "tip": "No contributions on Feb 16, 2026"
       },
       {
         "row": 2,
@@ -1446,7 +1448,7 @@
         "formattedDate": "Feb 17, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 17th."
+        "tip": "No contributions on Feb 17, 2026"
       },
       {
         "row": 3,
@@ -1455,7 +1457,7 @@
         "formattedDate": "Feb 18, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 18th."
+        "tip": "No contributions on Feb 18, 2026"
       },
       {
         "row": 4,
@@ -1464,7 +1466,7 @@
         "formattedDate": "Feb 19, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 19th."
+        "tip": "No contributions on Feb 19, 2026"
       },
       {
         "row": 5,
@@ -1473,7 +1475,7 @@
         "formattedDate": "Feb 20, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on February 20th."
+        "tip": "2 contributions on Feb 20, 2026"
       },
       {
         "row": 6,
@@ -1482,7 +1484,7 @@
         "formattedDate": "Feb 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 21st."
+        "tip": "No contributions on Feb 21, 2026"
       }
     ],
     [
@@ -1493,7 +1495,7 @@
         "formattedDate": "Feb 22, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 22nd."
+        "tip": "No contributions on Feb 22, 2026"
       },
       {
         "row": 1,
@@ -1502,7 +1504,7 @@
         "formattedDate": "Feb 23, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 23rd."
+        "tip": "No contributions on Feb 23, 2026"
       },
       {
         "row": 2,
@@ -1511,7 +1513,7 @@
         "formattedDate": "Feb 24, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on February 24th."
+        "tip": "4 contributions on Feb 24, 2026"
       },
       {
         "row": 3,
@@ -1520,7 +1522,7 @@
         "formattedDate": "Feb 25, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 25th."
+        "tip": "No contributions on Feb 25, 2026"
       },
       {
         "row": 4,
@@ -1529,7 +1531,7 @@
         "formattedDate": "Feb 26, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 26th."
+        "tip": "No contributions on Feb 26, 2026"
       },
       {
         "row": 5,
@@ -1538,7 +1540,7 @@
         "formattedDate": "Feb 27, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 27th."
+        "tip": "No contributions on Feb 27, 2026"
       },
       {
         "row": 6,
@@ -1547,7 +1549,7 @@
         "formattedDate": "Feb 28, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on February 28th."
+        "tip": "No contributions on Feb 28, 2026"
       }
     ],
     [
@@ -1558,7 +1560,7 @@
         "formattedDate": "Mar 1, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 1st."
+        "tip": "No contributions on Mar 1, 2026"
       },
       {
         "row": 1,
@@ -1567,7 +1569,7 @@
         "formattedDate": "Mar 2, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 2nd."
+        "tip": "No contributions on Mar 2, 2026"
       },
       {
         "row": 2,
@@ -1576,7 +1578,7 @@
         "formattedDate": "Mar 3, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 3rd."
+        "tip": "No contributions on Mar 3, 2026"
       },
       {
         "row": 3,
@@ -1585,7 +1587,7 @@
         "formattedDate": "Mar 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 4th."
+        "tip": "No contributions on Mar 4, 2026"
       },
       {
         "row": 4,
@@ -1594,7 +1596,7 @@
         "formattedDate": "Mar 5, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 5th."
+        "tip": "No contributions on Mar 5, 2026"
       },
       {
         "row": 5,
@@ -1603,7 +1605,7 @@
         "formattedDate": "Mar 6, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 6th."
+        "tip": "No contributions on Mar 6, 2026"
       },
       {
         "row": 6,
@@ -1612,7 +1614,7 @@
         "formattedDate": "Mar 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 7th."
+        "tip": "No contributions on Mar 7, 2026"
       }
     ],
     [
@@ -1623,7 +1625,7 @@
         "formattedDate": "Mar 8, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on March 8th."
+        "tip": "3 contributions on Mar 8, 2026"
       },
       {
         "row": 1,
@@ -1632,7 +1634,7 @@
         "formattedDate": "Mar 9, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 9th."
+        "tip": "No contributions on Mar 9, 2026"
       },
       {
         "row": 2,
@@ -1641,7 +1643,7 @@
         "formattedDate": "Mar 10, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 10th."
+        "tip": "No contributions on Mar 10, 2026"
       },
       {
         "row": 3,
@@ -1650,7 +1652,7 @@
         "formattedDate": "Mar 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 11th."
+        "tip": "No contributions on Mar 11, 2026"
       },
       {
         "row": 4,
@@ -1659,7 +1661,7 @@
         "formattedDate": "Mar 12, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on March 12th."
+        "tip": "1 contribution on Mar 12, 2026"
       },
       {
         "row": 5,
@@ -1668,7 +1670,7 @@
         "formattedDate": "Mar 13, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 13th."
+        "tip": "No contributions on Mar 13, 2026"
       },
       {
         "row": 6,
@@ -1677,7 +1679,7 @@
         "formattedDate": "Mar 14, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 14th."
+        "tip": "No contributions on Mar 14, 2026"
       }
     ],
     [
@@ -1688,7 +1690,7 @@
         "formattedDate": "Mar 15, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 15th."
+        "tip": "No contributions on Mar 15, 2026"
       },
       {
         "row": 1,
@@ -1697,7 +1699,7 @@
         "formattedDate": "Mar 16, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 16th."
+        "tip": "No contributions on Mar 16, 2026"
       },
       {
         "row": 2,
@@ -1706,7 +1708,7 @@
         "formattedDate": "Mar 17, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 17th."
+        "tip": "No contributions on Mar 17, 2026"
       },
       {
         "row": 3,
@@ -1715,7 +1717,7 @@
         "formattedDate": "Mar 18, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on March 18th."
+        "tip": "2 contributions on Mar 18, 2026"
       },
       {
         "row": 4,
@@ -1724,7 +1726,7 @@
         "formattedDate": "Mar 19, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on March 19th."
+        "tip": "3 contributions on Mar 19, 2026"
       },
       {
         "row": 5,
@@ -1733,7 +1735,7 @@
         "formattedDate": "Mar 20, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on March 20th."
+        "tip": "1 contribution on Mar 20, 2026"
       },
       {
         "row": 6,
@@ -1742,7 +1744,7 @@
         "formattedDate": "Mar 21, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on March 21st."
+        "tip": "1 contribution on Mar 21, 2026"
       }
     ],
     [
@@ -1753,7 +1755,7 @@
         "formattedDate": "Mar 22, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on March 22nd."
+        "tip": "1 contribution on Mar 22, 2026"
       },
       {
         "row": 1,
@@ -1762,7 +1764,7 @@
         "formattedDate": "Mar 23, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 23rd."
+        "tip": "No contributions on Mar 23, 2026"
       },
       {
         "row": 2,
@@ -1771,7 +1773,7 @@
         "formattedDate": "Mar 24, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on March 24th."
+        "tip": "5 contributions on Mar 24, 2026"
       },
       {
         "row": 3,
@@ -1780,7 +1782,7 @@
         "formattedDate": "Mar 25, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on March 25th."
+        "tip": "3 contributions on Mar 25, 2026"
       },
       {
         "row": 4,
@@ -1789,7 +1791,7 @@
         "formattedDate": "Mar 26, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on March 26th."
+        "tip": "2 contributions on Mar 26, 2026"
       },
       {
         "row": 5,
@@ -1798,7 +1800,7 @@
         "formattedDate": "Mar 27, 2026",
         "level": 2,
         "count": 7,
-        "tip": "7 contributions on March 27th."
+        "tip": "7 contributions on Mar 27, 2026"
       },
       {
         "row": 6,
@@ -1807,7 +1809,7 @@
         "formattedDate": "Mar 28, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on March 28th."
+        "tip": "5 contributions on Mar 28, 2026"
       }
     ],
     [
@@ -1818,7 +1820,7 @@
         "formattedDate": "Mar 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on March 29th."
+        "tip": "No contributions on Mar 29, 2026"
       },
       {
         "row": 1,
@@ -1827,7 +1829,7 @@
         "formattedDate": "Mar 30, 2026",
         "level": 3,
         "count": 11,
-        "tip": "11 contributions on March 30th."
+        "tip": "11 contributions on Mar 30, 2026"
       },
       {
         "row": 2,
@@ -1836,7 +1838,7 @@
         "formattedDate": "Mar 31, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on March 31st."
+        "tip": "3 contributions on Mar 31, 2026"
       },
       {
         "row": 3,
@@ -1845,7 +1847,7 @@
         "formattedDate": "Apr 1, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 1st."
+        "tip": "No contributions on Apr 1, 2026"
       },
       {
         "row": 4,
@@ -1854,7 +1856,7 @@
         "formattedDate": "Apr 2, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on April 2nd."
+        "tip": "3 contributions on Apr 2, 2026"
       },
       {
         "row": 5,
@@ -1863,7 +1865,7 @@
         "formattedDate": "Apr 3, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on April 3rd."
+        "tip": "4 contributions on Apr 3, 2026"
       },
       {
         "row": 6,
@@ -1872,7 +1874,7 @@
         "formattedDate": "Apr 4, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on April 4th."
+        "tip": "1 contribution on Apr 4, 2026"
       }
     ],
     [
@@ -1883,7 +1885,7 @@
         "formattedDate": "Apr 5, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on April 5th."
+        "tip": "3 contributions on Apr 5, 2026"
       },
       {
         "row": 1,
@@ -1892,7 +1894,7 @@
         "formattedDate": "Apr 6, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on April 6th."
+        "tip": "4 contributions on Apr 6, 2026"
       },
       {
         "row": 2,
@@ -1901,7 +1903,7 @@
         "formattedDate": "Apr 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 7th."
+        "tip": "No contributions on Apr 7, 2026"
       },
       {
         "row": 3,
@@ -1910,7 +1912,7 @@
         "formattedDate": "Apr 8, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on April 8th."
+        "tip": "6 contributions on Apr 8, 2026"
       },
       {
         "row": 4,
@@ -1919,7 +1921,7 @@
         "formattedDate": "Apr 9, 2026",
         "level": 2,
         "count": 8,
-        "tip": "8 contributions on April 9th."
+        "tip": "8 contributions on Apr 9, 2026"
       },
       {
         "row": 5,
@@ -1928,7 +1930,7 @@
         "formattedDate": "Apr 10, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on April 10th."
+        "tip": "6 contributions on Apr 10, 2026"
       },
       {
         "row": 6,
@@ -1937,7 +1939,7 @@
         "formattedDate": "Apr 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 11th."
+        "tip": "No contributions on Apr 11, 2026"
       }
     ],
     [
@@ -1948,7 +1950,7 @@
         "formattedDate": "Apr 12, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on April 12th."
+        "tip": "6 contributions on Apr 12, 2026"
       },
       {
         "row": 1,
@@ -1957,7 +1959,7 @@
         "formattedDate": "Apr 13, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on April 13th."
+        "tip": "5 contributions on Apr 13, 2026"
       },
       {
         "row": 2,
@@ -1966,7 +1968,7 @@
         "formattedDate": "Apr 14, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on April 14th."
+        "tip": "5 contributions on Apr 14, 2026"
       },
       {
         "row": 3,
@@ -1975,7 +1977,7 @@
         "formattedDate": "Apr 15, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 15th."
+        "tip": "No contributions on Apr 15, 2026"
       },
       {
         "row": 4,
@@ -1984,7 +1986,7 @@
         "formattedDate": "Apr 16, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 16th."
+        "tip": "No contributions on Apr 16, 2026"
       },
       {
         "row": 5,
@@ -1993,7 +1995,7 @@
         "formattedDate": "Apr 17, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on April 17th."
+        "tip": "4 contributions on Apr 17, 2026"
       },
       {
         "row": 6,
@@ -2002,7 +2004,7 @@
         "formattedDate": "Apr 18, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 18th."
+        "tip": "No contributions on Apr 18, 2026"
       }
     ],
     [
@@ -2013,7 +2015,7 @@
         "formattedDate": "Apr 19, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on April 19th."
+        "tip": "5 contributions on Apr 19, 2026"
       },
       {
         "row": 1,
@@ -2022,7 +2024,7 @@
         "formattedDate": "Apr 20, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on April 20th."
+        "tip": "2 contributions on Apr 20, 2026"
       },
       {
         "row": 2,
@@ -2031,7 +2033,7 @@
         "formattedDate": "Apr 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 21st."
+        "tip": "No contributions on Apr 21, 2026"
       },
       {
         "row": 3,
@@ -2040,7 +2042,7 @@
         "formattedDate": "Apr 22, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 22nd."
+        "tip": "No contributions on Apr 22, 2026"
       },
       {
         "row": 4,
@@ -2049,7 +2051,7 @@
         "formattedDate": "Apr 23, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on April 23rd."
+        "tip": "1 contribution on Apr 23, 2026"
       },
       {
         "row": 5,
@@ -2058,7 +2060,7 @@
         "formattedDate": "Apr 24, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 24th."
+        "tip": "No contributions on Apr 24, 2026"
       },
       {
         "row": 6,
@@ -2067,7 +2069,7 @@
         "formattedDate": "Apr 25, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on April 25th."
+        "tip": "3 contributions on Apr 25, 2026"
       }
     ],
     [
@@ -2078,7 +2080,7 @@
         "formattedDate": "Apr 26, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on April 26th."
+        "tip": "3 contributions on Apr 26, 2026"
       },
       {
         "row": 1,
@@ -2087,7 +2089,7 @@
         "formattedDate": "Apr 27, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 27th."
+        "tip": "No contributions on Apr 27, 2026"
       },
       {
         "row": 2,
@@ -2096,7 +2098,7 @@
         "formattedDate": "Apr 28, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 28th."
+        "tip": "No contributions on Apr 28, 2026"
       },
       {
         "row": 3,
@@ -2105,7 +2107,7 @@
         "formattedDate": "Apr 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 29th."
+        "tip": "No contributions on Apr 29, 2026"
       },
       {
         "row": 4,
@@ -2114,7 +2116,7 @@
         "formattedDate": "Apr 30, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on April 30th."
+        "tip": "No contributions on Apr 30, 2026"
       },
       {
         "row": 5,
@@ -2123,7 +2125,7 @@
         "formattedDate": "May 1, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 1st."
+        "tip": "No contributions on May 1, 2026"
       },
       {
         "row": 6,
@@ -2132,7 +2134,7 @@
         "formattedDate": "May 2, 2026",
         "level": 4,
         "count": 22,
-        "tip": "22 contributions on May 2nd."
+        "tip": "22 contributions on May 2, 2026"
       }
     ],
     [
@@ -2143,7 +2145,7 @@
         "formattedDate": "May 3, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on May 3rd."
+        "tip": "2 contributions on May 3, 2026"
       },
       {
         "row": 1,
@@ -2152,7 +2154,7 @@
         "formattedDate": "May 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 4th."
+        "tip": "No contributions on May 4, 2026"
       },
       {
         "row": 2,
@@ -2161,7 +2163,7 @@
         "formattedDate": "May 5, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 5th."
+        "tip": "No contributions on May 5, 2026"
       },
       {
         "row": 3,
@@ -2170,7 +2172,7 @@
         "formattedDate": "May 6, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on May 6th."
+        "tip": "3 contributions on May 6, 2026"
       },
       {
         "row": 4,
@@ -2179,7 +2181,7 @@
         "formattedDate": "May 7, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on May 7th."
+        "tip": "5 contributions on May 7, 2026"
       },
       {
         "row": 5,
@@ -2188,7 +2190,7 @@
         "formattedDate": "May 8, 2026",
         "level": 3,
         "count": 10,
-        "tip": "10 contributions on May 8th."
+        "tip": "10 contributions on May 8, 2026"
       },
       {
         "row": 6,
@@ -2197,7 +2199,7 @@
         "formattedDate": "May 9, 2026",
         "level": 4,
         "count": 16,
-        "tip": "16 contributions on May 9th."
+        "tip": "16 contributions on May 9, 2026"
       }
     ],
     [
@@ -2208,7 +2210,7 @@
         "formattedDate": "May 10, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on May 10th."
+        "tip": "6 contributions on May 10, 2026"
       },
       {
         "row": 1,
@@ -2217,7 +2219,7 @@
         "formattedDate": "May 11, 2026",
         "level": 2,
         "count": 9,
-        "tip": "9 contributions on May 11th."
+        "tip": "9 contributions on May 11, 2026"
       },
       {
         "row": 2,
@@ -2226,7 +2228,7 @@
         "formattedDate": "May 12, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on May 12th."
+        "tip": "3 contributions on May 12, 2026"
       },
       {
         "row": 3,
@@ -2235,7 +2237,7 @@
         "formattedDate": "May 13, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on May 13th."
+        "tip": "5 contributions on May 13, 2026"
       },
       {
         "row": 4,
@@ -2244,7 +2246,7 @@
         "formattedDate": "May 14, 2026",
         "level": 4,
         "count": 24,
-        "tip": "24 contributions on May 14th."
+        "tip": "24 contributions on May 14, 2026"
       },
       {
         "row": 5,
@@ -2253,7 +2255,7 @@
         "formattedDate": "May 15, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on May 15th."
+        "tip": "1 contribution on May 15, 2026"
       },
       {
         "row": 6,
@@ -2262,7 +2264,7 @@
         "formattedDate": "May 16, 2026",
         "level": 2,
         "count": 8,
-        "tip": "8 contributions on May 16th."
+        "tip": "8 contributions on May 16, 2026"
       }
     ],
     [
@@ -2273,7 +2275,7 @@
         "formattedDate": "May 17, 2026",
         "level": 3,
         "count": 14,
-        "tip": "14 contributions on May 17th."
+        "tip": "14 contributions on May 17, 2026"
       },
       {
         "row": 1,
@@ -2282,7 +2284,7 @@
         "formattedDate": "May 18, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on May 18th."
+        "tip": "3 contributions on May 18, 2026"
       },
       {
         "row": 2,
@@ -2291,7 +2293,7 @@
         "formattedDate": "May 19, 2026",
         "level": 4,
         "count": 19,
-        "tip": "19 contributions on May 19th."
+        "tip": "19 contributions on May 19, 2026"
       },
       {
         "row": 3,
@@ -2300,7 +2302,7 @@
         "formattedDate": "May 20, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 20th."
+        "tip": "No contributions on May 20, 2026"
       },
       {
         "row": 4,
@@ -2309,7 +2311,7 @@
         "formattedDate": "May 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 21st."
+        "tip": "No contributions on May 21, 2026"
       },
       {
         "row": 5,
@@ -2318,7 +2320,7 @@
         "formattedDate": "May 22, 2026",
         "level": 2,
         "count": 8,
-        "tip": "8 contributions on May 22nd."
+        "tip": "8 contributions on May 22, 2026"
       },
       {
         "row": 6,
@@ -2327,7 +2329,7 @@
         "formattedDate": "May 23, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on May 23rd."
+        "tip": "3 contributions on May 23, 2026"
       }
     ],
     [
@@ -2338,7 +2340,7 @@
         "formattedDate": "May 24, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on May 24th."
+        "tip": "3 contributions on May 24, 2026"
       },
       {
         "row": 1,
@@ -2347,7 +2349,7 @@
         "formattedDate": "May 25, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 25th."
+        "tip": "No contributions on May 25, 2026"
       },
       {
         "row": 2,
@@ -2356,7 +2358,7 @@
         "formattedDate": "May 26, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 26th."
+        "tip": "No contributions on May 26, 2026"
       },
       {
         "row": 3,
@@ -2365,7 +2367,7 @@
         "formattedDate": "May 27, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 27th."
+        "tip": "No contributions on May 27, 2026"
       },
       {
         "row": 4,
@@ -2374,7 +2376,7 @@
         "formattedDate": "May 28, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on May 28th."
+        "tip": "3 contributions on May 28, 2026"
       },
       {
         "row": 5,
@@ -2383,7 +2385,7 @@
         "formattedDate": "May 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 29th."
+        "tip": "No contributions on May 29, 2026"
       },
       {
         "row": 6,
@@ -2392,7 +2394,7 @@
         "formattedDate": "May 30, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 30th."
+        "tip": "No contributions on May 30, 2026"
       }
     ],
     [
@@ -2403,7 +2405,7 @@
         "formattedDate": "May 31, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on May 31st."
+        "tip": "No contributions on May 31, 2026"
       },
       {
         "row": 1,
@@ -2412,7 +2414,7 @@
         "formattedDate": "Jun 1, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 1st."
+        "tip": "3 contributions on Jun 1, 2026"
       },
       {
         "row": 2,
@@ -2421,7 +2423,7 @@
         "formattedDate": "Jun 2, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 2nd."
+        "tip": "3 contributions on Jun 2, 2026"
       },
       {
         "row": 3,
@@ -2430,7 +2432,7 @@
         "formattedDate": "Jun 3, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on June 3rd."
+        "tip": "6 contributions on Jun 3, 2026"
       },
       {
         "row": 4,
@@ -2439,7 +2441,7 @@
         "formattedDate": "Jun 4, 2026",
         "level": 2,
         "count": 9,
-        "tip": "9 contributions on June 4th."
+        "tip": "9 contributions on Jun 4, 2026"
       },
       {
         "row": 5,
@@ -2448,7 +2450,7 @@
         "formattedDate": "Jun 5, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 5th."
+        "tip": "3 contributions on Jun 5, 2026"
       },
       {
         "row": 6,
@@ -2457,7 +2459,7 @@
         "formattedDate": "Jun 6, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on June 6th."
+        "tip": "4 contributions on Jun 6, 2026"
       }
     ],
     [
@@ -2468,7 +2470,7 @@
         "formattedDate": "Jun 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 7th."
+        "tip": "No contributions on Jun 7, 2026"
       },
       {
         "row": 1,
@@ -2477,7 +2479,7 @@
         "formattedDate": "Jun 8, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 8th."
+        "tip": "3 contributions on Jun 8, 2026"
       },
       {
         "row": 2,
@@ -2486,7 +2488,7 @@
         "formattedDate": "Jun 9, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on June 9th."
+        "tip": "1 contribution on Jun 9, 2026"
       },
       {
         "row": 3,
@@ -2495,7 +2497,7 @@
         "formattedDate": "Jun 10, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 10th."
+        "tip": "No contributions on Jun 10, 2026"
       },
       {
         "row": 4,
@@ -2504,7 +2506,7 @@
         "formattedDate": "Jun 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 11th."
+        "tip": "No contributions on Jun 11, 2026"
       },
       {
         "row": 5,
@@ -2513,7 +2515,7 @@
         "formattedDate": "Jun 12, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 12th."
+        "tip": "No contributions on Jun 12, 2026"
       },
       {
         "row": 6,
@@ -2522,7 +2524,7 @@
         "formattedDate": "Jun 13, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 13th."
+        "tip": "No contributions on Jun 13, 2026"
       }
     ],
     [
@@ -2533,7 +2535,7 @@
         "formattedDate": "Jun 14, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on June 14th."
+        "tip": "4 contributions on Jun 14, 2026"
       },
       {
         "row": 1,
@@ -2542,7 +2544,7 @@
         "formattedDate": "Jun 15, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 15th."
+        "tip": "3 contributions on Jun 15, 2026"
       },
       {
         "row": 2,
@@ -2551,7 +2553,7 @@
         "formattedDate": "Jun 16, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on June 16th."
+        "tip": "5 contributions on Jun 16, 2026"
       },
       {
         "row": 3,
@@ -2560,7 +2562,7 @@
         "formattedDate": "Jun 17, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 17th."
+        "tip": "3 contributions on Jun 17, 2026"
       },
       {
         "row": 4,
@@ -2569,7 +2571,7 @@
         "formattedDate": "Jun 18, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 18th."
+        "tip": "No contributions on Jun 18, 2026"
       },
       {
         "row": 5,
@@ -2578,7 +2580,7 @@
         "formattedDate": "Jun 19, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 19th."
+        "tip": "No contributions on Jun 19, 2026"
       },
       {
         "row": 6,
@@ -2587,7 +2589,7 @@
         "formattedDate": "Jun 20, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 20th."
+        "tip": "No contributions on Jun 20, 2026"
       }
     ],
     [
@@ -2598,7 +2600,7 @@
         "formattedDate": "Jun 21, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 21st."
+        "tip": "3 contributions on Jun 21, 2026"
       },
       {
         "row": 1,
@@ -2607,7 +2609,7 @@
         "formattedDate": "Jun 22, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 22nd."
+        "tip": "No contributions on Jun 22, 2026"
       },
       {
         "row": 2,
@@ -2616,7 +2618,7 @@
         "formattedDate": "Jun 23, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 23rd."
+        "tip": "3 contributions on Jun 23, 2026"
       },
       {
         "row": 3,
@@ -2625,7 +2627,7 @@
         "formattedDate": "Jun 24, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on June 24th."
+        "tip": "3 contributions on Jun 24, 2026"
       },
       {
         "row": 4,
@@ -2634,7 +2636,7 @@
         "formattedDate": "Jun 25, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 25th."
+        "tip": "No contributions on Jun 25, 2026"
       },
       {
         "row": 5,
@@ -2643,7 +2645,7 @@
         "formattedDate": "Jun 26, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 26th."
+        "tip": "No contributions on Jun 26, 2026"
       },
       {
         "row": 6,
@@ -2652,7 +2654,7 @@
         "formattedDate": "Jun 27, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 27th."
+        "tip": "No contributions on Jun 27, 2026"
       }
     ],
     [
@@ -2663,7 +2665,7 @@
         "formattedDate": "Jun 28, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 28th."
+        "tip": "No contributions on Jun 28, 2026"
       },
       {
         "row": 1,
@@ -2672,7 +2674,7 @@
         "formattedDate": "Jun 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 29th."
+        "tip": "No contributions on Jun 29, 2026"
       },
       {
         "row": 2,
@@ -2681,7 +2683,7 @@
         "formattedDate": "Jun 30, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on June 30th."
+        "tip": "No contributions on Jun 30, 2026"
       },
       {
         "row": 3,
@@ -2690,7 +2692,7 @@
         "formattedDate": "Jul 1, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on July 1st."
+        "tip": "5 contributions on Jul 1, 2026"
       },
       {
         "row": 4,
@@ -2699,7 +2701,7 @@
         "formattedDate": "Jul 2, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 2nd."
+        "tip": "No contributions on Jul 2, 2026"
       },
       {
         "row": 5,
@@ -2708,7 +2710,7 @@
         "formattedDate": "Jul 3, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 3rd."
+        "tip": "No contributions on Jul 3, 2026"
       },
       {
         "row": 6,
@@ -2717,7 +2719,7 @@
         "formattedDate": "Jul 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 4th."
+        "tip": "No contributions on Jul 4, 2026"
       }
     ],
     [
@@ -2728,7 +2730,7 @@
         "formattedDate": "Jul 5, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 5th."
+        "tip": "No contributions on Jul 5, 2026"
       },
       {
         "row": 1,
@@ -2737,7 +2739,7 @@
         "formattedDate": "Jul 6, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 6th."
+        "tip": "No contributions on Jul 6, 2026"
       },
       {
         "row": 2,
@@ -2746,7 +2748,7 @@
         "formattedDate": "Jul 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 7th."
+        "tip": "No contributions on Jul 7, 2026"
       },
       {
         "row": 3,
@@ -2755,7 +2757,7 @@
         "formattedDate": "Jul 8, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 8th."
+        "tip": "No contributions on Jul 8, 2026"
       },
       {
         "row": 4,
@@ -2764,7 +2766,7 @@
         "formattedDate": "Jul 9, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on July 9th."
+        "tip": "6 contributions on Jul 9, 2026"
       },
       {
         "row": 5,
@@ -2773,7 +2775,7 @@
         "formattedDate": "Jul 10, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on July 10th."
+        "tip": "1 contribution on Jul 10, 2026"
       },
       {
         "row": 6,
@@ -2782,7 +2784,7 @@
         "formattedDate": "Jul 11, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on July 11th."
+        "tip": "2 contributions on Jul 11, 2026"
       }
     ],
     [
@@ -2793,7 +2795,7 @@
         "formattedDate": "Jul 12, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 12th."
+        "tip": "No contributions on Jul 12, 2026"
       },
       {
         "row": 1,
@@ -2802,7 +2804,7 @@
         "formattedDate": "Jul 13, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on July 13th."
+        "tip": "1 contribution on Jul 13, 2026"
       },
       {
         "row": 2,
@@ -2811,7 +2813,7 @@
         "formattedDate": "Jul 14, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 14th."
+        "tip": "No contributions on Jul 14, 2026"
       },
       {
         "row": 3,
@@ -2820,7 +2822,7 @@
         "formattedDate": "Jul 15, 2026",
         "level": 1,
         "count": 4,
-        "tip": "4 contributions on July 15th."
+        "tip": "4 contributions on Jul 15, 2026"
       },
       {
         "row": 4,
@@ -2829,7 +2831,7 @@
         "formattedDate": "Jul 16, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on July 16th."
+        "tip": "3 contributions on Jul 16, 2026"
       },
       {
         "row": 5,
@@ -2838,7 +2840,7 @@
         "formattedDate": "Jul 17, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 17th."
+        "tip": "No contributions on Jul 17, 2026"
       },
       {
         "row": 6,
@@ -2847,7 +2849,7 @@
         "formattedDate": "Jul 18, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on July 18th."
+        "tip": "2 contributions on Jul 18, 2026"
       }
     ],
     [
@@ -2858,7 +2860,7 @@
         "formattedDate": "Jul 19, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 19th."
+        "tip": "No contributions on Jul 19, 2026"
       },
       {
         "row": 1,
@@ -2867,7 +2869,7 @@
         "formattedDate": "Jul 20, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 20th."
+        "tip": "No contributions on Jul 20, 2026"
       },
       {
         "row": 2,
@@ -2876,7 +2878,7 @@
         "formattedDate": "Jul 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 21st."
+        "tip": "No contributions on Jul 21, 2026"
       },
       {
         "row": 3,
@@ -2885,7 +2887,7 @@
         "formattedDate": "Jul 22, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on July 22nd."
+        "tip": "2 contributions on Jul 22, 2026"
       },
       {
         "row": 4,
@@ -2894,7 +2896,7 @@
         "formattedDate": "Jul 23, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 23rd."
+        "tip": "No contributions on Jul 23, 2026"
       },
       {
         "row": 5,
@@ -2903,7 +2905,7 @@
         "formattedDate": "Jul 24, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 24th."
+        "tip": "No contributions on Jul 24, 2026"
       },
       {
         "row": 6,
@@ -2912,7 +2914,7 @@
         "formattedDate": "Jul 25, 2026",
         "level": 1,
         "count": 1,
-        "tip": "1 contribution on July 25th."
+        "tip": "1 contribution on Jul 25, 2026"
       }
     ],
     [
@@ -2923,7 +2925,7 @@
         "formattedDate": "Jul 26, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 26th."
+        "tip": "No contributions on Jul 26, 2026"
       },
       {
         "row": 1,
@@ -2932,7 +2934,7 @@
         "formattedDate": "Jul 27, 2026",
         "level": 4,
         "count": 16,
-        "tip": "16 contributions on July 27th."
+        "tip": "16 contributions on Jul 27, 2026"
       },
       {
         "row": 2,
@@ -2941,7 +2943,7 @@
         "formattedDate": "Jul 28, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on July 28th."
+        "tip": "2 contributions on Jul 28, 2026"
       },
       {
         "row": 3,
@@ -2950,7 +2952,7 @@
         "formattedDate": "Jul 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 29th."
+        "tip": "No contributions on Jul 29, 2026"
       },
       {
         "row": 4,
@@ -2959,7 +2961,7 @@
         "formattedDate": "Jul 30, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 30th."
+        "tip": "No contributions on Jul 30, 2026"
       },
       {
         "row": 5,
@@ -2968,7 +2970,7 @@
         "formattedDate": "Jul 31, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on July 31st."
+        "tip": "No contributions on Jul 31, 2026"
       },
       {
         "row": 6,
@@ -2977,7 +2979,7 @@
         "formattedDate": "Aug 1, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 1st."
+        "tip": "No contributions on Aug 1, 2026"
       }
     ],
     [
@@ -2988,7 +2990,7 @@
         "formattedDate": "Aug 2, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 2nd."
+        "tip": "No contributions on Aug 2, 2026"
       },
       {
         "row": 1,
@@ -2997,7 +2999,7 @@
         "formattedDate": "Aug 3, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 3rd."
+        "tip": "No contributions on Aug 3, 2026"
       },
       {
         "row": 2,
@@ -3006,7 +3008,7 @@
         "formattedDate": "Aug 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 4th."
+        "tip": "No contributions on Aug 4, 2026"
       },
       {
         "row": 3,
@@ -3015,7 +3017,7 @@
         "formattedDate": "Aug 5, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 5th."
+        "tip": "No contributions on Aug 5, 2026"
       },
       {
         "row": 4,
@@ -3024,7 +3026,7 @@
         "formattedDate": "Aug 6, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 6th."
+        "tip": "No contributions on Aug 6, 2026"
       },
       {
         "row": 5,
@@ -3033,7 +3035,7 @@
         "formattedDate": "Aug 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 7th."
+        "tip": "No contributions on Aug 7, 2026"
       },
       {
         "row": 6,
@@ -3042,7 +3044,7 @@
         "formattedDate": "Aug 8, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 8th."
+        "tip": "No contributions on Aug 8, 2026"
       }
     ],
     [
@@ -3053,7 +3055,7 @@
         "formattedDate": "Aug 9, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 9th."
+        "tip": "No contributions on Aug 9, 2026"
       },
       {
         "row": 1,
@@ -3062,7 +3064,7 @@
         "formattedDate": "Aug 10, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 10th."
+        "tip": "No contributions on Aug 10, 2026"
       },
       {
         "row": 2,
@@ -3071,7 +3073,7 @@
         "formattedDate": "Aug 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 11th."
+        "tip": "No contributions on Aug 11, 2026"
       },
       {
         "row": 3,
@@ -3080,7 +3082,7 @@
         "formattedDate": "Aug 12, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 12th."
+        "tip": "No contributions on Aug 12, 2026"
       },
       {
         "row": 4,
@@ -3089,7 +3091,7 @@
         "formattedDate": "Aug 13, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 13th."
+        "tip": "No contributions on Aug 13, 2026"
       },
       {
         "row": 5,
@@ -3098,7 +3100,7 @@
         "formattedDate": "Aug 14, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 14th."
+        "tip": "No contributions on Aug 14, 2026"
       },
       {
         "row": 6,
@@ -3107,7 +3109,7 @@
         "formattedDate": "Aug 15, 2026",
         "level": 2,
         "count": 9,
-        "tip": "9 contributions on August 15th."
+        "tip": "9 contributions on Aug 15, 2026"
       }
     ],
     [
@@ -3118,7 +3120,7 @@
         "formattedDate": "Aug 16, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 16th."
+        "tip": "No contributions on Aug 16, 2026"
       },
       {
         "row": 1,
@@ -3127,7 +3129,7 @@
         "formattedDate": "Aug 17, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 17th."
+        "tip": "No contributions on Aug 17, 2026"
       },
       {
         "row": 2,
@@ -3136,7 +3138,7 @@
         "formattedDate": "Aug 18, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 18th."
+        "tip": "No contributions on Aug 18, 2026"
       },
       {
         "row": 3,
@@ -3145,7 +3147,7 @@
         "formattedDate": "Aug 19, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 19th."
+        "tip": "No contributions on Aug 19, 2026"
       },
       {
         "row": 4,
@@ -3154,7 +3156,7 @@
         "formattedDate": "Aug 20, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 20th."
+        "tip": "No contributions on Aug 20, 2026"
       },
       {
         "row": 5,
@@ -3163,7 +3165,7 @@
         "formattedDate": "Aug 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 21st."
+        "tip": "No contributions on Aug 21, 2026"
       },
       {
         "row": 6,
@@ -3172,7 +3174,7 @@
         "formattedDate": "Aug 22, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 22nd."
+        "tip": "No contributions on Aug 22, 2026"
       }
     ],
     [
@@ -3183,7 +3185,7 @@
         "formattedDate": "Aug 23, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 23rd."
+        "tip": "No contributions on Aug 23, 2026"
       },
       {
         "row": 1,
@@ -3192,7 +3194,7 @@
         "formattedDate": "Aug 24, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 24th."
+        "tip": "No contributions on Aug 24, 2026"
       },
       {
         "row": 2,
@@ -3201,7 +3203,7 @@
         "formattedDate": "Aug 25, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on August 25th."
+        "tip": "2 contributions on Aug 25, 2026"
       },
       {
         "row": 3,
@@ -3210,7 +3212,7 @@
         "formattedDate": "Aug 26, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 26th."
+        "tip": "No contributions on Aug 26, 2026"
       },
       {
         "row": 4,
@@ -3219,7 +3221,7 @@
         "formattedDate": "Aug 27, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 27th."
+        "tip": "No contributions on Aug 27, 2026"
       },
       {
         "row": 5,
@@ -3228,7 +3230,7 @@
         "formattedDate": "Aug 28, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 28th."
+        "tip": "No contributions on Aug 28, 2026"
       },
       {
         "row": 6,
@@ -3237,7 +3239,7 @@
         "formattedDate": "Aug 29, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 29th."
+        "tip": "No contributions on Aug 29, 2026"
       }
     ],
     [
@@ -3248,7 +3250,7 @@
         "formattedDate": "Aug 30, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 30th."
+        "tip": "No contributions on Aug 30, 2026"
       },
       {
         "row": 1,
@@ -3257,7 +3259,7 @@
         "formattedDate": "Aug 31, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on August 31st."
+        "tip": "No contributions on Aug 31, 2026"
       },
       {
         "row": 2,
@@ -3266,7 +3268,7 @@
         "formattedDate": "Sep 1, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 1st."
+        "tip": "No contributions on Sep 1, 2026"
       },
       {
         "row": 3,
@@ -3275,7 +3277,7 @@
         "formattedDate": "Sep 2, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on September 2nd."
+        "tip": "3 contributions on Sep 2, 2026"
       },
       {
         "row": 4,
@@ -3284,7 +3286,7 @@
         "formattedDate": "Sep 3, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 3rd."
+        "tip": "No contributions on Sep 3, 2026"
       },
       {
         "row": 5,
@@ -3293,7 +3295,7 @@
         "formattedDate": "Sep 4, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 4th."
+        "tip": "No contributions on Sep 4, 2026"
       },
       {
         "row": 6,
@@ -3302,7 +3304,7 @@
         "formattedDate": "Sep 5, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 5th."
+        "tip": "No contributions on Sep 5, 2026"
       }
     ],
     [
@@ -3313,7 +3315,7 @@
         "formattedDate": "Sep 6, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 6th."
+        "tip": "No contributions on Sep 6, 2026"
       },
       {
         "row": 1,
@@ -3322,7 +3324,7 @@
         "formattedDate": "Sep 7, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 7th."
+        "tip": "No contributions on Sep 7, 2026"
       },
       {
         "row": 2,
@@ -3331,7 +3333,7 @@
         "formattedDate": "Sep 8, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 8th."
+        "tip": "No contributions on Sep 8, 2026"
       },
       {
         "row": 3,
@@ -3340,7 +3342,7 @@
         "formattedDate": "Sep 9, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 9th."
+        "tip": "No contributions on Sep 9, 2026"
       },
       {
         "row": 4,
@@ -3349,7 +3351,7 @@
         "formattedDate": "Sep 10, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 10th."
+        "tip": "No contributions on Sep 10, 2026"
       },
       {
         "row": 5,
@@ -3358,7 +3360,7 @@
         "formattedDate": "Sep 11, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 11th."
+        "tip": "No contributions on Sep 11, 2026"
       },
       {
         "row": 6,
@@ -3367,7 +3369,7 @@
         "formattedDate": "Sep 12, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 12th."
+        "tip": "No contributions on Sep 12, 2026"
       }
     ],
     [
@@ -3378,7 +3380,7 @@
         "formattedDate": "Sep 13, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 13th."
+        "tip": "No contributions on Sep 13, 2026"
       },
       {
         "row": 1,
@@ -3387,7 +3389,7 @@
         "formattedDate": "Sep 14, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on September 14th."
+        "tip": "3 contributions on Sep 14, 2026"
       },
       {
         "row": 2,
@@ -3396,7 +3398,7 @@
         "formattedDate": "Sep 15, 2026",
         "level": 2,
         "count": 5,
-        "tip": "5 contributions on September 15th."
+        "tip": "5 contributions on Sep 15, 2026"
       },
       {
         "row": 3,
@@ -3405,7 +3407,7 @@
         "formattedDate": "Sep 16, 2026",
         "level": 2,
         "count": 9,
-        "tip": "9 contributions on September 16th."
+        "tip": "9 contributions on Sep 16, 2026"
       },
       {
         "row": 4,
@@ -3414,7 +3416,7 @@
         "formattedDate": "Sep 17, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on September 17th."
+        "tip": "2 contributions on Sep 17, 2026"
       },
       {
         "row": 5,
@@ -3423,7 +3425,7 @@
         "formattedDate": "Sep 18, 2026",
         "level": 1,
         "count": 3,
-        "tip": "3 contributions on September 18th."
+        "tip": "3 contributions on Sep 18, 2026"
       },
       {
         "row": 6,
@@ -3432,7 +3434,7 @@
         "formattedDate": "Sep 19, 2026",
         "level": 2,
         "count": 6,
-        "tip": "6 contributions on September 19th."
+        "tip": "6 contributions on Sep 19, 2026"
       }
     ],
     [
@@ -3443,7 +3445,7 @@
         "formattedDate": "Sep 20, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 20th."
+        "tip": "No contributions on Sep 20, 2026"
       },
       {
         "row": 1,
@@ -3452,7 +3454,7 @@
         "formattedDate": "Sep 21, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 21st."
+        "tip": "No contributions on Sep 21, 2026"
       },
       {
         "row": 2,
@@ -3461,7 +3463,7 @@
         "formattedDate": "Sep 22, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 22nd."
+        "tip": "No contributions on Sep 22, 2026"
       },
       {
         "row": 3,
@@ -3470,7 +3472,7 @@
         "formattedDate": "Sep 23, 2026",
         "level": 0,
         "count": 0,
-        "tip": "No contributions on September 23rd."
+        "tip": "No contributions on Sep 23, 2026"
       },
       {
         "row": 4,
@@ -3479,17 +3481,27 @@
         "formattedDate": "Sep 24, 2026",
         "level": 1,
         "count": 2,
-        "tip": "2 contributions on September 24th."
+        "tip": "2 contributions on Sep 24, 2026"
       },
       {
         "row": 5,
         "col": 52,
         "date": "2026-09-25",
         "formattedDate": "Sep 25, 2026",
+        "level": 2,
+        "count": 7,
+        "tip": "7 contributions on Sep 25, 2026"
+      },
+      {
+        "row": 6,
+        "col": 52,
+        "date": "2026-09-26",
+        "formattedDate": "Sep 26, 2026",
         "level": 1,
-        "count": 3,
-        "tip": "3 contributions on September 25th."
+        "count": 1,
+        "tip": "1 contribution on Sep 26, 2026"
       }
     ]
-  ]
+  ],
+  "lastUpdated": "2026-09-26T16:37:14.995Z"
 }

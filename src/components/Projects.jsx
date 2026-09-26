@@ -4,8 +4,8 @@ import initialProjects from '../data/projects'
 
 const externalProps = { target: '_blank', rel: 'noreferrer' }
 
-// Automatically bundle all assets in src/assets/ for production and map them dynamically
-const assetMap = import.meta.glob('../assets/*', { eager: true, import: 'default' })
+// Automatically bundle all assets in src/assets/ (including projects/ and credentials/)
+const assetMap = import.meta.glob('../assets/**/*', { eager: true, import: 'default' })
 
 function resolveAssetUrl(path) {
   if (!path || typeof path !== 'string') return path
@@ -13,7 +13,10 @@ function resolveAssetUrl(path) {
     return path
   }
   const cleanName = path.replace(/^\/?(src\/)?assets\//, '')
-  const foundKey = Object.keys(assetMap).find((k) => k.endsWith('/' + cleanName))
+  const fileName = cleanName.split('/').pop()
+  const foundKey = Object.keys(assetMap).find(
+    (k) => k.endsWith('/' + cleanName) || k.endsWith('/' + fileName)
+  )
   if (foundKey && assetMap[foundKey]) {
     return assetMap[foundKey]
   }

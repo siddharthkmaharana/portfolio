@@ -1,21 +1,88 @@
 import { useState, useMemo } from 'react'
 import {
-  Award,
   ExternalLink,
-  CheckCircle2,
   Copy,
   Check,
   Search,
-  ShieldCheck,
+  Maximize2,
+  X,
+  FileText,
+  Award,
 } from 'lucide-react'
 import { credentials as defaultCredentials, credentialCategories } from '../data/credentials'
 
 const externalProps = { target: '_blank', rel: 'noreferrer' }
 
+// Map all images in src/assets/credentials/ for production bundler
+const credAssetMap = import.meta.glob('../assets/credentials/*', { eager: true, import: 'default' })
+
+function resolveCredAsset(path) {
+  if (!path || typeof path !== 'string') return path
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path
+  }
+  const cleanName = path.replace(/^\/?(src\/)?assets\/credentials\//, '')
+  const fileName = cleanName.split('/').pop()
+  const foundKey = Object.keys(credAssetMap).find(
+    (k) => k.endsWith('/' + cleanName) || k.endsWith('/' + fileName)
+  )
+  if (foundKey && credAssetMap[foundKey]) {
+    return credAssetMap[foundKey]
+  }
+  return path.startsWith('src/') ? '/' + path : path
+}
+
+/**
+ * Synthetic Certificate component for credentials that don't have an uploaded image yet
+ */
+function SyntheticCertificate({ item }) {
+  return (
+    <div className="synthetic-cert">
+      <div className="synthetic-cert-inner">
+        <div className="synthetic-cert-frame">
+          <div className="synthetic-cert-top">
+            <div className="synthetic-issuer-brand">
+              <span className="synthetic-issuer-name">{item.issuer}</span>
+              <span className="synthetic-issuer-sub">CERTIFICATION PROGRAM</span>
+            </div>
+            <div className="synthetic-seal-badge">
+              <Award size={18} />
+              <span>{item.badge || 'VERIFIED'}</span>
+            </div>
+          </div>
+
+          <div className="synthetic-cert-center">
+            <p className="synthetic-cert-label">Certificate of Recognition</p>
+            <h4 className="synthetic-recipient">Siddharth Kumar Maharana</h4>
+            <p className="synthetic-cert-context">has successfully completed all requirements for</p>
+            <h3 className="synthetic-cert-title">{item.title}</h3>
+          </div>
+
+          <div className="synthetic-cert-bottom">
+            <div className="synthetic-bottom-item">
+              <span className="synthetic-bottom-label">Issue Date</span>
+              <span className="synthetic-bottom-value">{item.date}</span>
+            </div>
+            <div className="synthetic-bottom-sig">
+              <div className="synthetic-sig-mark" />
+              <span className="synthetic-bottom-label">Authorized Verification</span>
+            </div>
+            <div className="synthetic-bottom-item right">
+              <span className="synthetic-bottom-label">Credential ID</span>
+              <span className="synthetic-bottom-value mono">{item.credentialId}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function Credentials({ data = defaultCredentials }) {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [copiedId, setCopiedId] = useState(null)
+  const [previewCert, setPreviewCert] = useState(null)
 
   const handleCopyId = (id) => {
     navigator.clipboard.writeText(id)
@@ -81,52 +148,39 @@ export function Credentials({ data = defaultCredentials }) {
         </div>
       </div>
 
-      {/* CREDENTIALS GRID */}
+      {/* CREDENTIALS GRID - MINIMAL DESIGN MATCHING MOCKUP */}
       {filteredCredentials.length > 0 ? (
         <div className="credentials-grid">
           {filteredCredentials.map((item) => (
             <article key={item.id} className="credential-card">
-              {/* TOP ROW: ICON + TITLE + BADGE */}
-              <div className="cred-card-header">
-                <div className="cred-icon-title-group">
-                  <div className="cred-icon-box" aria-hidden="true">
-                    <Award size={20} />
-                  </div>
-                  <div className="cred-title-meta">
-                    <h3 className="cred-title">{item.title}</h3>
-                    <p className="cred-issuer-row">
-                      <span className="cred-issuer">{item.issuer}</span>
-                      <span className="cred-dot" aria-hidden="true">·</span>
-                      <span className="cred-date">{item.date}</span>
-                    </p>
-                  </div>
-                </div>
-
-                {item.badge && (
-                  <span className="cred-status-badge">
-                    <ShieldCheck size={12} />
-                    <span>{item.badge}</span>
-                  </span>
+              {/* TOP: CERTIFICATE IMAGE / PREVIEW */}
+              <div
+                className="cred-cert-wrapper"
+                onClick={() => setPreviewCert(item)}
+                title="Click to view full certificate"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && setPreviewCert(item)}
+              >
+                {item.image ? (
+                  <img
+                    src={resolveCredAsset(item.image)}
+                    alt={item.title}
+                    className="cred-cert-img"
+                    loading="lazy"
+                  />
+                ) : (
+                  <SyntheticCertificate item={item} />
                 )}
+
+                {/* Subtle hover indicator at bottom-right */}
+                <div className="cred-cert-hint">
+                  <Maximize2 size={13} />
+                  <span>View Full</span>
+                </div>
               </div>
 
-              {/* DESCRIPTION */}
-              {item.description && (
-                <p className="cred-description">{item.description}</p>
-              )}
-
-              {/* SKILLS PILLS */}
-              {item.skills && item.skills.length > 0 && (
-                <div className="cred-skills-list">
-                  {item.skills.map((skill, sIdx) => (
-                    <span key={sIdx} className="cred-skill-pill">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {/* FOOTER: CREDENTIAL ID + VERIFY LINK */}
+              {/* FOOTER: ID (LEFT) + VERIFY CREDENTIAL (RIGHT) */}
               <div className="cred-card-footer">
                 {item.credentialId ? (
                   <button
@@ -134,15 +188,16 @@ export function Credentials({ data = defaultCredentials }) {
                     className="cred-id-copy-btn"
                     onClick={() => handleCopyId(item.credentialId)}
                     title="Click to copy Credential ID"
+                    aria-label={`Copy Credential ID ${item.credentialId}`}
                   >
                     {copiedId === item.credentialId ? (
                       <>
-                        <Check size={13} className="copy-success-icon" />
+                        <Check size={14} className="copy-success-icon" />
                         <span className="copy-success-text">Copied!</span>
                       </>
                     ) : (
                       <>
-                        <Copy size={13} />
+                        <Copy size={14} />
                         <span>ID: {item.credentialId}</span>
                       </>
                     )}
@@ -151,7 +206,7 @@ export function Credentials({ data = defaultCredentials }) {
                   <span />
                 )}
 
-                {item.url && (
+                {item.url ? (
                   <a
                     href={item.url}
                     {...externalProps}
@@ -159,8 +214,18 @@ export function Credentials({ data = defaultCredentials }) {
                     title={`Verify ${item.title}`}
                   >
                     <span>Verify Credential</span>
-                    <ExternalLink size={13} />
+                    <ExternalLink size={14} />
                   </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="cred-verify-link cred-verify-btn"
+                    onClick={() => setPreviewCert(item)}
+                    title={`View and verify ${item.title}`}
+                  >
+                    <span>Verify Credential</span>
+                    <ExternalLink size={14} />
+                  </button>
                 )}
               </div>
             </article>
@@ -185,8 +250,69 @@ export function Credentials({ data = defaultCredentials }) {
           </button>
         </div>
       )}
+
+      {/* FULLSCREEN CERTIFICATE MODAL */}
+      {previewCert && (
+        <div
+          className="cred-modal-backdrop"
+          onClick={() => setPreviewCert(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={previewCert.title}
+        >
+          <div
+            className="cred-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="cred-modal-header">
+              <div className="cred-modal-title-area">
+                <h3>{previewCert.title}</h3>
+                <p>{previewCert.issuer} · Issued {previewCert.date}</p>
+              </div>
+              <button
+                type="button"
+                className="cred-modal-close-btn"
+                onClick={() => setPreviewCert(null)}
+                aria-label="Close certificate preview"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="cred-modal-image-body">
+              {previewCert.image ? (
+                <img
+                  src={resolveCredAsset(previewCert.image)}
+                  alt={previewCert.title}
+                  className="cred-modal-full-img"
+                />
+              ) : (
+                <div className="cred-modal-synthetic-wrap">
+                  <SyntheticCertificate item={previewCert} />
+                </div>
+              )}
+            </div>
+
+            <div className="cred-modal-footer">
+              <span className="cred-modal-id">ID: {previewCert.credentialId}</span>
+              {previewCert.url && (
+                <a
+                  href={previewCert.url}
+                  {...externalProps}
+                  className="cred-modal-link-btn"
+                >
+                  <FileText size={14} />
+                  <span>Download / View Official Document</span>
+                  <ExternalLink size={13} />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
 export default Credentials
+
