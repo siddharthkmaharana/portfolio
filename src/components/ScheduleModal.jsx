@@ -84,18 +84,21 @@ export function ScheduleModal({ onClose }) {
   )
 }
 
-export function FloatingCalendarButton({ onClick }) {
+export function TopScheduleButton({ onClick }) {
   return (
     <button
       type="button"
-      className="floating-calendar-btn"
+      className="top-schedule-btn"
       onClick={onClick}
       aria-label="Schedule a call"
       title="Schedule a call"
     >
-      <CalendarDays size={18} />
+      <CalendarDays size={15} />
+      <span>Schedule a call</span>
     </button>
   )
 }
+
+export const FloatingCalendarButton = TopScheduleButton
 
 export default ScheduleModal

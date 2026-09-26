@@ -8,7 +8,6 @@
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* DARK THEME */
@@ -16,12 +15,12 @@
   --bg-page: #000000;
   --bg-shell: #000000;
   --bg-card: #000000;
-  --border: #262626;
+  --border: #404040;
   --border-subtle: #1c1c1c;
-  --card-border: #262626;
+  --card-border: #404040;
   --card-border-hover: #3b3b3b;
   --search-bg: #000000;
-  --search-border: #262626;
+  --search-border: #404040;
   --search-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
   --text: #ffffff;
   --text-secondary: #d1d5db;
@@ -116,13 +115,50 @@
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2a2a2a;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #404040;
+}
+
+/* ==========================================================================
+   CIRCULAR VIEW TRANSITION (THEME SPREADING RIPPLE ANIMATION)
+   ========================================================================== */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: theme-spread 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes theme-spread {
+  0% {
+    clip-path: circle(0px at var(--toggle-x, 32px) var(--toggle-y, 32px));
+  }
+  100% {
+    clip-path: circle(var(--toggle-radius, 150vmax) at var(--toggle-x, 32px) var(--toggle-y, 32px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
 }

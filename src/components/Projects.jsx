@@ -4,6 +4,22 @@ import initialProjects from '../data/projects'
 
 const externalProps = { target: '_blank', rel: 'noreferrer' }
 
+// Automatically bundle all assets in src/assets/ for production and map them dynamically
+const assetMap = import.meta.glob('../assets/*', { eager: true, import: 'default' })
+
+function resolveAssetUrl(path) {
+  if (!path || typeof path !== 'string') return path
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path
+  }
+  const cleanName = path.replace(/^\/?(src\/)?assets\//, '')
+  const foundKey = Object.keys(assetMap).find((k) => k.endsWith('/' + cleanName))
+  if (foundKey && assetMap[foundKey]) {
+    return assetMap[foundKey]
+  }
+  return path.startsWith('src/') ? '/' + path : path
+}
+
 export function Projects({ projects = initialProjects, dark = true }) {
   const [query, setQuery] = useState('')
   const [selectedProject, setSelectedProject] = useState(null)
@@ -14,10 +30,7 @@ export function Projects({ projects = initialProjects, dark = true }) {
         ? (project.image2 || project.imageLight || project.image_lm)
         : (project.image || project.imageDark || project.image_dm)
 
-    if (typeof src === 'string' && src.startsWith('src/')) {
-      src = '/' + src
-    }
-    return src
+    return resolveAssetUrl(src)
   }
 
   const filteredProjects = useMemo(() => {

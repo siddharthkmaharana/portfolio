@@ -1,10 +1,10 @@
+import { flushSync } from 'react-dom'
 import {
   GitBranch,
   Link2,
   Mail,
   Moon,
   Phone,
-  Rss,
   Sun,
 } from 'lucide-react'
 import personalInfo from '../data/personalInfo'
@@ -12,33 +12,74 @@ import personalInfo from '../data/personalInfo'
 const externalProps = { target: '_blank', rel: 'noreferrer' }
 
 export function PersonalInfo({ dark, setDark, onScheduleCall }) {
+  const handleToggleTheme = (e) => {
+    const button = e.currentTarget
+    const rect = button.getBoundingClientRect()
+    const x = Math.round(rect.left + rect.width / 2)
+    const y = Math.round(rect.top + rect.height / 2)
+
+    const endRadius = Math.ceil(
+      Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      )
+    )
+
+    // Pass coordinates to CSS custom properties
+    document.documentElement.style.setProperty('--toggle-x', `${x}px`)
+    document.documentElement.style.setProperty('--toggle-y', `${y}px`)
+    document.documentElement.style.setProperty('--toggle-radius', `${endRadius}px`)
+
+    const isReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // Fallback if View Transitions API is not supported or reduced motion requested
+    if (!document.startViewTransition || isReducedMotion) {
+      setDark((prev) => !prev)
+      return
+    }
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => {
+        setDark((prev) => !prev)
+      })
+    })
+
+    transition.ready.then(() => {
+      try {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${endRadius}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration: 650,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            pseudoElement: '::view-transition-new(root)',
+          }
+        )
+      } catch {
+        // Handled by CSS @keyframes fallback in theme.css
+      }
+    })
+  }
+
   return (
     <aside className="profile-header">
-      {/* TOP CONTROLS (RSS FEED & THEME TOGGLE) */}
+      {/* TOP CONTROLS (DARK/LIGHT THEME SWITCH - UPPER LEFT) */}
       <div className="topline">
-        <span className="topline-spacer" />
-        <div className="topline-controls">
-          {personalInfo.feedUrl && (
-            <a
-              href={personalInfo.feedUrl}
-              {...externalProps}
-              className="topline-icon-btn"
-              aria-label="Feed"
-              title="Feed"
-            >
-              <Rss size={16} />
-            </a>
-          )}
-          <button
-            className="topline-icon-btn"
-            type="button"
-            onClick={() => setDark((value) => !value)}
-            aria-label="Toggle theme"
-            title="Toggle theme"
-          >
-            {dark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-        </div>
+        <button
+          className="topline-icon-btn"
+          type="button"
+          onClick={handleToggleTheme}
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          {dark ? <Sun size={17} /> : <Moon size={17} />}
+        </button>
       </div>
 
       {/* NAME, TAGLINE, BIO */}
@@ -53,13 +94,6 @@ export function PersonalInfo({ dark, setDark, onScheduleCall }) {
 
       {/* CALL TO ACTION BUTTONS & SOCIALS */}
       <div className="header-actions">
-        <button
-          className="schedule-call-btn"
-          type="button"
-          onClick={onScheduleCall}
-        >
-          Schedule a call
-        </button>
         {personalInfo.resumeUrl && (
           <a
             className="resume-btn"
@@ -121,6 +155,34 @@ export function PersonalInfo({ dark, setDark, onScheduleCall }) {
           )}
         </div>
       </div>
+
+      {/* EDUCATION SECTION */}
+      {personalInfo.education && personalInfo.education.length > 0 && (
+        <div className="education-section">
+          <h2 className="sidebar-section-title">Education</h2>
+          <div className="education-list">
+            {personalInfo.education.map((edu, idx) => (
+              <div key={idx} className="education-item">
+                <div className="education-header">
+                  <span className="education-degree">{edu.degree}</span>
+                  {edu.period && (
+                    <span className="education-period">{edu.period}</span>
+                  )}
+                </div>
+                <div className="education-sub">
+                  <span>{edu.institution}</span>
+                  {edu.score && (
+                    <>
+                      <span className="edu-dot">·</span>
+                      <span className="education-score">{edu.score}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* SKILLS LIST */}
       <div className="skills-list">

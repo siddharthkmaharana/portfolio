@@ -1,16 +1,21 @@
 /**
  * PROJECTS DATA
  * Edit this file to add, remove, or modify your portfolio projects.
- * For theme-specific images:
- * - `image`: image shown in Dark Mode (e.g. _DM)
- * - `image2`: image shown in Light Mode (e.g. _LM)
  */
 
-import cortexaDM from '../assets/Cortexa_DM.png'
-import cortexaLM from '../assets/Cortexa_LM.png'
-import merkleVisualizer from '../assets/Merkle_Tree_visualizer.png'
-
 export const projects = [
+  {
+    title: 'Integrated Food Delivery & Dine-Out Platform',
+    date: 'July 28, 2025',
+    description: 'Full-stack food ordering and dine-out platform with geospatial restaurant discovery, gamified reviews, real-time order tracking, and state-based order management.',
+    tags: ['React', 'Vite', 'Node.js', 'MongoDB Atlas', 'Socket.io', 'JWT', 'AWS EC2'],
+    features: 'GeoJSON restaurant discovery, gamified reviews, live tracking, and a six-state order workflow from placement to delivery.',
+    live: 'https://integrated-food-delivery-and-dine-o.vercel.app/',
+    source: 'https://github.com/siddharthkmaharana/Integrated-Food-Delivery-and-Dine-Out-Hospitality-Platform',
+    accent: 'blue',
+    image: 'src/assets/Integrated Food Delivery_DM.png',
+    image2: 'src/assets/Integrated Food Delivery_LM.png',
+  },
   {
     title: 'Cortexa',
     date: 'May 7, 2026',
@@ -19,8 +24,8 @@ export const projects = [
     features: 'Real-time object detection, OCR, barcode scanning, scene understanding, voice interaction, and persistent memory.',
     source: 'https://github.com/siddharthkmaharana/Cortexa',
     accent: 'coral',
-    image: cortexaDM,  // Dark Mode image (_DM)
-    image2: cortexaLM, // Light Mode image (_LM)
+    image: 'src/assets/Cortexa_DM.png',
+    image2: 'src/assets/Cortexa_LM.png'
   },
   {
     title: 'Merkle Tree Visualizer',
@@ -31,18 +36,8 @@ export const projects = [
     live: 'https://wanderlustt-ziz3.onrender.com/',
     source: 'https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer',
     accent: 'mint',
-    image: merkleVisualizer,
-  },
-  {
-    title: 'Integrated Food Delivery & Dine-Out Platform',
-    date: 'July 28, 2025',
-    description: 'Full-stack food ordering and dine-out platform with geospatial restaurant discovery, gamified reviews, real-time order tracking, and state-based order management.',
-    tags: ['React', 'Vite', 'Node.js', 'MongoDB Atlas', 'Socket.io', 'JWT', 'AWS EC2'],
-    features: 'GeoJSON restaurant discovery, gamified reviews, live tracking, and a six-state order workflow from placement to delivery.',
-    live: 'https://integrated-food-delivery-and-dine-o.vercel.app/',
-    source: 'https://github.com/siddharthkmaharana/Integrated-Food-Delivery-and-Dine-Out-Hospitality-Platform',
-    accent: 'blue',
-    image: '/projects/food_delivery.jpg',
+    image: 'src/assets/MTV_DM.png',
+    image2: 'src/assets/MTV_LM.png',
   },
   {
     title: 'Telemedicine & EHR Platform',

@@ -24,6 +24,21 @@ export const personalInfo = {
     linkedin: 'https://www.linkedin.com/in/siddharth-kumar-maharana/',
   },
 
+  education: [
+    {
+      degree: 'Master of Computer Application (MCA)',
+      institution: 'Amity University, Bengaluru',
+      period: '2024–2026',
+      score: 'CGPA: 8.5 (Till 3rd Sem)',
+    },
+    {
+      degree: 'Bachelor of Science in Physics',
+      institution: 'Berhampur University, Odisha',
+      period: '2021–2023',
+      score: 'CGPA: 7.5',
+    },
+  ],
+
   skills: [
     { category: 'Programming Languages', list: 'Java, JavaScript, TypeScript' },
     { category: 'Frontend', list: 'React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, Chart.js, HTML, SCSS, Skiper UI, Framer Motion, React Hook Form' },

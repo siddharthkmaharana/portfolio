@@ -144,6 +144,113 @@ export function Stats({ data = statsData }) {
           </div>
         </article>
 
+        {/* LEETCODE SUBMISSIONS CARD */}
+        {data.leetcode && (
+          <article className="stat-card leetcode-contributions-card">
+            {/* HEADER */}
+            <div className="leetcode-header">
+              <div className="leetcode-title-area">
+                <div className="leetcode-title-row">
+                  <span className="leetcode-badge-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.874 5.874 0 0 0 .349 1.017 5.938 5.938 0 0 0 .481.82 5.763 5.763 0 0 0 3.513 2.35 5.46 5.46 0 0 0 1.258.125 5.434 5.434 0 0 0 2.238-.475 5.753 5.753 0 0 0 1.625-1.125l3.854-4.126 5.406-5.788a1.374 1.374 0 0 0-.012-1.928 1.374 1.374 0 0 0-1.928-.012l-5.394 5.788-3.854 4.126a3.02 3.02 0 0 1-.856.592 2.71 2.71 0 0 1-1.125.238 2.735 2.735 0 0 1-.628-.063 2.973 2.973 0 0 1-1.815-1.213 3.064 3.064 0 0 1-.25-.425 3.03 3.03 0 0 1-.175-.525 2.8 2.8 0 0 1-.038-1.2 2.72 2.72 0 0 1 .625-1.075l3.854-4.126 5.406-5.788A1.374 1.374 0 0 0 13.483 0z" />
+                    </svg>
+                  </span>
+                  <h2 className="leetcode-title">LeetCode Submissions</h2>
+                </div>
+                <p className="leetcode-subtitle">
+                  {data.leetcode.totalSolved} problems solved · {data.leetcode.acceptanceRate} acceptance rate
+                </p>
+              </div>
+              <a
+                href={data.leetcode.profileUrl}
+                {...externalProps}
+                className="github-profile-link-btn leetcode-profile-btn"
+                title="View Siddharth's LeetCode Profile"
+              >
+                <span>{data.leetcode.username}</span>
+                <ArrowUpRight size={14} />
+              </a>
+            </div>
+
+            {/* LEETCODE BODY GRID */}
+            <div className="leetcode-body-grid">
+              {/* LEFT: SOLVED BREAKDOWN */}
+              <div className="leetcode-overview-panel">
+                <div className="leetcode-total-box">
+                  <div className="leetcode-circle-stat">
+                    <span className="leetcode-big-num">{data.leetcode.totalSolved}</span>
+                    <span className="leetcode-total-label">solved</span>
+                  </div>
+                  <div className="leetcode-sub-stats">
+                    <div className="leetcode-sub-row">
+                      <span className="sub-stat-label">Total Submissions</span>
+                      <span className="sub-stat-val">{data.leetcode.totalSubmissions}</span>
+                    </div>
+                    <div className="leetcode-sub-row">
+                      <span className="sub-stat-label">Acceptance Rate</span>
+                      <span className="sub-stat-val highlight">{data.leetcode.acceptanceRate}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* DIFFICULTY PROGRESS BARS */}
+                <div className="difficulty-bars-list">
+                  {data.leetcode.breakdown.map((item) => {
+                    const percent = Math.max(6, Math.min(100, Math.round((item.solved / 15) * 100)))
+                    return (
+                      <div key={item.difficulty} className="diff-bar-item">
+                        <div className="diff-bar-header">
+                          <span className={`diff-name ${item.difficulty.toLowerCase()}`}>
+                            {item.difficulty}
+                          </span>
+                          <span className="diff-counts">
+                            <b>{item.solved}</b> <small>/ {item.total}</small>
+                          </span>
+                        </div>
+                        <div className="diff-progress-track">
+                          <div
+                            className={`diff-progress-fill ${item.difficulty.toLowerCase()}`}
+                            style={{ width: `${percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* RIGHT: RECENT ACCEPTED SUBMISSIONS */}
+              <div className="leetcode-recent-panel">
+                <div className="recent-panel-header">
+                  <h3>Recent Accepted Solutions</h3>
+                </div>
+                <div className="recent-submissions-list">
+                  {data.leetcode.recentSubmissions.map((sub, idx) => (
+                    <a
+                      key={idx}
+                      href={`https://leetcode.com/problems/${sub.slug}/`}
+                      {...externalProps}
+                      className="recent-submission-row"
+                    >
+                      <div className="recent-sub-info">
+                        <span className="recent-sub-dot" />
+                        <span className="recent-sub-title">{sub.title}</span>
+                      </div>
+                      <div className="recent-sub-meta">
+                        <span className={`diff-badge ${sub.difficulty.toLowerCase()}`}>
+                          {sub.difficulty}
+                        </span>
+                        <ArrowUpRight size={13} className="sub-arrow" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+        )}
+
         {/* FLOATING HOVER TOOLTIP */}
         {hoveredCell && (
           <div
