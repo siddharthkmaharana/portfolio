@@ -54,6 +54,7 @@
 }
 
 .project-card {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--card-border);
   border-radius: 16px;

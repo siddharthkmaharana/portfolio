@@ -51,7 +51,7 @@
 }
 
 /* TAG BADGE ON PREVIEW */
-.tag-badge {
+.design-preview-tag {
   position: absolute;
   top: 16px;
   left: 16px;
@@ -120,7 +120,7 @@
 }
 
 /* TECH TAG PILLS */
-.tag-row {
+.design-card .tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -195,7 +195,7 @@
     border-radius: 14px;
   }
 
-  .tag-badge {
+  .design-preview-tag {
     top: 12px;
     left: 12px;
     font-size: 10px;

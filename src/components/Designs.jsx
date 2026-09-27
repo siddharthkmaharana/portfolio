@@ -15,7 +15,7 @@ export function Designs({ designs = designProjects || initialDesigns }) {
           >
             {/* Top preview frame */}
             <div className="preview-container">
-              {project.tag && <span className="tag-badge">{project.tag}</span>}
+              {project.tag && <span className="design-preview-tag">{project.tag}</span>}
               <img
                 src={project.image}
                 alt={project.title}
