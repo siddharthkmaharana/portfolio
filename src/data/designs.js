@@ -3,31 +3,29 @@
  * Edit this file to showcase design recreations, concepts, and experiments.
  */
 
-export const designs = [
+export const designProjects = [
   {
-    title: "Zentry's Replica",
-    description: 'My favourite design project till date. Recreating the zentry.com web, an Awwwards-winning website.',
-    className: 'zentry',
-    label: 'ZENTRY / 01',
+    id: "01",
+    tag: "AI / 01",
+    title: "Zurvn — Modular AI Platform",
+    description: "Futuristic dark-mode landing page with ambient video hero, metric counters, and interactive architecture flows.",
+    image: "/images/designs/zurvn-preview.png",
+    liveUrl: "https://siddharthkmaharana.github.io/landing_page_gallery/landing-page-01/",
+    githubUrl: "https://github.com/siddharthkmaharana/landing_page_gallery/tree/main/landing-page-01",
+    tags: ["HTML5", "CSS3", "JavaScript", "Glassmorphism"]
   },
   {
-    title: 'my first portfolio attempt',
-    description: 'A futuristic Apple-ish design for portfolio.',
-    className: 'apple',
-    label: 'PORTFOLIO / 02',
-  },
-  {
-    title: 'my second portfolio revamp',
-    description: 'A sleek, modern UI designed portfolio with buttery smooth scrolling and minimalism.',
-    className: 'glass',
-    label: 'REVAMP / 03',
-  },
-  {
-    title: 'Spotify Clone',
-    description: 'A focused music interface study with playlists, bold color, and motion.',
-    className: 'spotify',
-    label: 'MUSIC / 04',
-  },
-]
+    id: "02",
+    tag: "AUDIO / 02",
+    title: "Aura One — Spatial Sound",
+    description: "Minimalist luxury hardware landing page with real-time Web Audio synthesizer and ANC simulation.",
+    image: "/images/designs/aura-preview.png",
+    liveUrl: "https://siddharthkmaharana.github.io/landing_page_gallery/landing-page-02/",
+    githubUrl: "https://github.com/siddharthkmaharana/landing_page_gallery",
+    tags: ["Web Audio API", "Canvas", "Hardware UI"]
+  }
+];
 
-export default designs
+export const designs = designProjects
+export default designProjects
+

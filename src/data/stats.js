@@ -17,6 +17,17 @@ export const statsData = {
     totalQuestions: 4060,
     totalSubmissions: 11,
     acceptanceRate: '90.9%',
+    submissionCalendar: {
+      '2026-07-10': 2,
+      '2026-07-15': 2,
+      '2026-07-16': 1,
+      '2026-08-15': 1,
+      '2026-08-16': 1,
+      '2026-09-02': 1,
+      '2026-09-14': 1,
+      '2026-09-16': 1,
+      '2026-09-19': 1,
+    },
     breakdown: [
       { difficulty: 'Easy', solved: 6, total: 966, color: '#00b8a3' },
       { difficulty: 'Medium', solved: 2, total: 2117, color: '#ffc01e' },

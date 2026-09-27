@@ -47,7 +47,7 @@ export const projects = [
     features: 'Patient, doctor, and admin roles with JWT authentication, encryption, audit logging, and collision-aware scheduling.',
     source: 'https://github.com/siddharthkmaharana/Telemedicine-EHR-Platform',
     accent: 'violet',
-    image: '/projects/telemedicine.jpg',
+    image: 'src/assets/projects/telemedicine.jpg',
   },
 ]
 

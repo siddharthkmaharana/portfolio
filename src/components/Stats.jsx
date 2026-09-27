@@ -1,4 +1,4 @@
-import { useLayoutEffect, useEffect, useRef, useState, useCallback } from 'react'
+import { useLayoutEffect, useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import { ArrowUpRight, GitBranch, Flame, Zap, RotateCw } from 'lucide-react'
 import { statsData } from '../data/stats'
 
@@ -7,6 +7,7 @@ const externalProps = { target: '_blank', rel: 'noreferrer' }
 export function Stats({ data = statsData }) {
   const [hoveredCell, setHoveredCell] = useState(null)
   const scrollRef = useRef(null)
+  const leetcodeScrollRef = useRef(null)
   const username = data.githubUsername || 'siddharthkmaharana'
   const profileUrl = data.githubProfileUrl || `https://github.com/${username}`
 
@@ -135,22 +136,97 @@ export function Stats({ data = statsData }) {
   const currentStreak = streak.currentStreak ?? 3
   const longestStreak = streak.longestStreak ?? 14
 
+  // Generate 53-week submission streak for LeetCode
+  const leetcodeStreak = useMemo(() => {
+    const submissionMap = data.leetcode?.submissionCalendar || {
+      '2026-07-10': 2,
+      '2026-07-15': 2,
+      '2026-07-16': 1,
+      '2026-08-15': 1,
+      '2026-08-16': 1,
+      '2026-09-02': 1,
+      '2026-09-14': 1,
+      '2026-09-16': 1,
+      '2026-09-19': 1,
+    }
+
+    const endDate = new Date()
+    const days = []
+    for (let i = 370; i >= 0; i--) {
+      const d = new Date(endDate)
+      d.setUTCDate(d.getUTCDate() - i)
+      const dateStr = d.toISOString().slice(0, 10)
+      const count = submissionMap[dateStr] || 0
+      let level = 0
+      if (count === 1) level = 1
+      else if (count === 2) level = 2
+      else if (count >= 3) level = 3
+      days.push({ date: dateStr, count, level })
+    }
+
+    const weeks = []
+    const monthHeaders = []
+    let lastMonth = null
+
+    for (let w = 0; w < Math.floor(days.length / 7); w++) {
+      const weekDays = days.slice(w * 7, (w + 1) * 7)
+      const week = weekDays.map((d, row) => {
+        const parts = d.date.split('-')
+        const dObj = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)))
+        const formattedDate = dObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+        const tip = d.count === 0 ? 'No submissions' : d.count === 1 ? '1 submission' : `${d.count} submissions`
+        return {
+          row,
+          col: w,
+          date: d.date,
+          formattedDate,
+          level: d.level,
+          count: d.count,
+          tip: `${tip} on ${formattedDate}`,
+        }
+      })
+      weeks.push(week)
+
+      const weekStart = days[w * 7]
+      const month = new Date(weekStart.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
+      if (month !== lastMonth) {
+        monthHeaders.push({ name: month, col: w })
+        lastMonth = month
+      }
+    }
+
+    return {
+      total: Object.values(submissionMap).reduce((a, b) => a + b, 0),
+      monthHeaders,
+      weeks,
+    }
+  }, [data.leetcode])
+
   // Automatically scroll to the right edge on mount so recent contributions are shown first
   useLayoutEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
     }
-  }, [streak])
+    if (leetcodeScrollRef.current) {
+      leetcodeScrollRef.current.scrollLeft = leetcodeScrollRef.current.scrollWidth
+    }
+  }, [streak, leetcodeStreak])
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       if (scrollRef.current) {
         scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
       }
+      if (leetcodeScrollRef.current) {
+        leetcodeScrollRef.current.scrollLeft = leetcodeScrollRef.current.scrollWidth
+      }
     })
     const timer = setTimeout(() => {
       if (scrollRef.current) {
         scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
+      }
+      if (leetcodeScrollRef.current) {
+        leetcodeScrollRef.current.scrollLeft = leetcodeScrollRef.current.scrollWidth
       }
     }, 60)
 
@@ -158,7 +234,7 @@ export function Stats({ data = statsData }) {
       cancelAnimationFrame(frame)
       clearTimeout(timer)
     }
-  }, [streak])
+  }, [streak, leetcodeStreak])
 
   return (
     <div className="view stats-view">
@@ -259,6 +335,7 @@ export function Stats({ data = statsData }) {
                                   count: day.count,
                                   date: day.formattedDate,
                                   tip: day.tip,
+                                  unit: 'contribution',
                                   x: rect.left + rect.width / 2,
                                   top: rect.top - 8,
                                 })
@@ -318,6 +395,88 @@ export function Stats({ data = statsData }) {
                 <span>{data.leetcode.username}</span>
                 <ArrowUpRight size={14} />
               </a>
+            </div>
+
+            {/* CONTRIBUTION STREAK LIKE GITHUB (ADDED AFTER HEADER) */}
+            <div className="streak-calendar-box leetcode-calendar-box">
+              <div className="streak-calendar-scroll" ref={leetcodeScrollRef}>
+                <div className="streak-calendar-content">
+                  {/* Month labels along the top */}
+                  {leetcodeStreak.monthHeaders && (
+                    <div className="streak-months-row">
+                      {leetcodeStreak.monthHeaders.map((m, idx) => (
+                        <span
+                          key={idx}
+                          className="streak-month-label"
+                          style={{ left: `${30 + m.col * 14.5}px` }}
+                        >
+                          {m.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Day labels + 53 Week Columns */}
+                  <div className="streak-grid-wrapper">
+                    <div className="streak-day-labels">
+                      <span className="streak-day-label" />
+                      <span className="streak-day-label">Mon</span>
+                      <span className="streak-day-label" />
+                      <span className="streak-day-label">Wed</span>
+                      <span className="streak-day-label" />
+                      <span className="streak-day-label">Fri</span>
+                      <span className="streak-day-label" />
+                    </div>
+
+                    <div className="streak-grid">
+                      {leetcodeStreak.weeks &&
+                        leetcodeStreak.weeks.map((week, wIdx) => (
+                          <div key={wIdx} className="streak-col">
+                            {week.map((day) => (
+                              <div
+                                key={day.row}
+                                className={`streak-cell level-${day.level}`}
+                                title={
+                                  day.tip ||
+                                  `${day.count} submissions on ${day.formattedDate}`
+                                }
+                                onMouseEnter={(e) => {
+                                  const rect =
+                                    e.currentTarget.getBoundingClientRect()
+                                  setHoveredCell({
+                                    count: day.count,
+                                    date: day.formattedDate,
+                                    tip: day.tip,
+                                    unit: 'submission',
+                                    x: rect.left + rect.width / 2,
+                                    top: rect.top - 8,
+                                  })
+                                }}
+                                onMouseLeave={() => setHoveredCell(null)}
+                              />
+                            ))}
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* FOOTER ROW */}
+              <div className="streak-footer-row">
+                <div className="streak-count-label">
+                  <span>{leetcodeStreak.total || data.leetcode.totalSubmissions} submissions in the last year</span>
+                </div>
+                <div className="streak-legend">
+                  <span className="legend-label">Less</span>
+                  <span className="streak-cell level-0" title="No submissions" />
+                  <span className="streak-cell level-1" title="1 submission" />
+                  <span className="streak-cell level-2" title="2 submissions" />
+                  <span className="streak-cell level-3" title="3 submissions" />
+                  <span className="streak-cell level-4" title="4+ submissions" />
+                  <span className="legend-label">More</span>
+                </div>
+              </div>
             </div>
 
             {/* LEETCODE BODY GRID */}
@@ -411,12 +570,16 @@ export function Stats({ data = statsData }) {
               <>
                 <strong>
                   {hoveredCell.count}{' '}
-                  {hoveredCell.count === 1 ? 'contribution' : 'contributions'}
+                  {hoveredCell.count === 1
+                    ? hoveredCell.unit || 'contribution'
+                    : hoveredCell.unit === 'submission'
+                    ? 'submissions'
+                    : 'contributions'}
                 </strong>{' '}
                 on {hoveredCell.date}
               </>
             ) : (
-              <>No contributions on {hoveredCell.date}</>
+              <>No {hoveredCell.unit === 'submission' ? 'submissions' : 'contributions'} on {hoveredCell.date}</>
             )}
           </div>
         )}
