@@ -16,7 +16,7 @@ export function Stats({ data = statsData }) {
       const cached = localStorage.getItem(`gh_streak_${username}`)
       if (cached) {
         const parsed = JSON.parse(cached)
-        if (Date.now() - parsed.timestamp < 10 * 60 * 1000) {
+        if (Date.now() - parsed.timestamp < 10 * 60 * 1000 && parsed.data?.weeks?.length === 53) {
           return parsed.data
         }
       }
@@ -32,15 +32,50 @@ export function Stats({ data = statsData }) {
   const syncWithGithub = useCallback(async (showLoading = true) => {
     if (showLoading) setIsSyncing(true)
     try {
-      const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`, {
-        headers: { Accept: 'application/json' },
-      })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const json = await res.json()
-      const days = json.contributions
-      if (!Array.isArray(days) || days.length === 0) throw new Error('Invalid contributions data')
+      let days = null
+      let total = null
 
-      // Streaks calculation
+      // Primary live contributions API
+      try {
+        const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`, {
+          headers: { Accept: 'application/json' },
+        })
+        if (res.ok) {
+          const json = await res.json()
+          if (Array.isArray(json.contributions) && json.contributions.length > 0) {
+            days = json.contributions
+            total = json.total?.lastYear
+          }
+        }
+      } catch (err1) {
+        console.warn('Primary contributions API unreachable, attempting secondary...', err1)
+      }
+
+      // Secondary fallback live API
+      if (!days) {
+        try {
+          const res2 = await fetch(`https://github-contributions.vercel.app/api/v1/${username}`)
+          if (res2.ok) {
+            const json2 = await res2.json()
+            if (Array.isArray(json2.contributions) && json2.contributions.length > 0) {
+              days = [...json2.contributions].reverse().map((d) => ({
+                date: d.date,
+                count: d.count || 0,
+                level: Math.min(4, Math.max(0, parseInt(d.intensity, 10) || (d.count > 0 ? 1 : 0))),
+              }))
+              total = json2.years?.[0]?.total
+            }
+          }
+        } catch (err2) {
+          console.warn('Secondary contributions API unreachable:', err2)
+        }
+      }
+
+      if (!days || days.length === 0) {
+        throw new Error('Unable to retrieve contributions data from network')
+      }
+
+      // Calculate streak stats across all days
       let currentStreak = 0
       let maxStreak = 0
       let tempStreak = 0
@@ -54,6 +89,7 @@ export function Stats({ data = statsData }) {
         }
       }
 
+      // Count current streak backwards starting from today or yesterday
       const lastIndex = days.length - 1
       let startIndex = -1
       if (days[lastIndex] && days[lastIndex].count > 0) {
@@ -72,39 +108,73 @@ export function Stats({ data = statsData }) {
         }
       }
 
+      // Build 53 week columns aligned with standard Sunday-Saturday weekday rows
       const weeks = []
+      let currentWeek = []
       const monthHeaders = []
-      let lastMonth = null
+      let lastHeaderMonth = null
+      let lastHeaderCol = -10
 
-      for (let w = 0; w < Math.floor(days.length / 7); w++) {
-        const weekDays = days.slice(w * 7, (w + 1) * 7)
-        const week = weekDays.map((d, row) => {
-          const parts = d.date.split('-')
-          const dObj = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)))
-          const formattedDate = dObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
-          const tip = d.count === 0 ? 'No contributions' : d.count === 1 ? '1 contribution' : `${d.count} contributions`
-          return {
-            row,
-            col: w,
-            date: d.date,
-            formattedDate,
-            level: d.level,
-            count: d.count,
-            tip: `${tip} on ${formattedDate}`,
-          }
-        })
-        weeks.push(week)
+      // Pad initial week if days[0] is not Sunday (row 0)
+      const firstDayObj = new Date(days[0].date + 'T00:00:00Z')
+      const firstDayOfWeek = firstDayObj.getUTCDay()
+      for (let r = 0; r < firstDayOfWeek; r++) {
+        currentWeek.push({ row: r, col: 0, empty: true })
+      }
 
-        const weekStart = days[w * 7]
-        const month = new Date(weekStart.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
-        if (month !== lastMonth) {
-          monthHeaders.push({ name: month, col: w })
-          lastMonth = month
+      for (let i = 0; i < days.length; i++) {
+        const d = days[i]
+        const parts = d.date.split('-')
+        const dObj = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)))
+        const dayOfWeek = dObj.getUTCDay()
+
+        // Push completed week on Sunday
+        if (dayOfWeek === 0 && currentWeek.length > 0) {
+          weeks.push(currentWeek)
+          currentWeek = []
         }
+
+        const col = weeks.length
+        const month = dObj.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
+
+        // Avoid month header overlap by enforcing at least 2 columns separation
+        if (month !== lastHeaderMonth && col - lastHeaderCol >= 2) {
+          monthHeaders.push({ name: month, col })
+          lastHeaderMonth = month
+          lastHeaderCol = col
+        }
+
+        const formattedDate = dObj.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          timeZone: 'UTC',
+        })
+        const tip = d.count === 0 ? 'No contributions' : d.count === 1 ? '1 contribution' : `${d.count} contributions`
+
+        currentWeek.push({
+          row: dayOfWeek,
+          col,
+          date: d.date,
+          formattedDate,
+          level: d.level,
+          count: d.count,
+          tip: `${tip} on ${formattedDate}`,
+        })
+      }
+
+      if (currentWeek.length > 0) {
+        // Pad the remainder of the final week up to Saturday (row 6)
+        const lastRow = currentWeek[currentWeek.length - 1].row
+        const col = weeks.length
+        for (let r = lastRow + 1; r < 7; r++) {
+          currentWeek.push({ row: r, col, empty: true })
+        }
+        weeks.push(currentWeek)
       }
 
       const newStreakData = {
-        total: json.total?.lastYear ?? days.reduce((sum, d) => sum + d.count, 0),
+        total: total ?? days.reduce((sum, d) => sum + d.count, 0),
         currentStreak,
         longestStreak: maxStreak,
         monthHeaders,
@@ -132,29 +202,24 @@ export function Stats({ data = statsData }) {
     syncWithGithub(false)
   }, [syncWithGithub])
 
-  const totalContributions = streak.total ?? '454'
-  const currentStreak = streak.currentStreak ?? 3
-  const longestStreak = streak.longestStreak ?? 14
+  const totalContributions = streak.total ?? data.realStreak?.total ?? 463
+  const currentStreak = streak.currentStreak ?? data.realStreak?.currentStreak ?? 5
+  const longestStreak = streak.longestStreak ?? data.realStreak?.longestStreak ?? 14
 
   // Generate 53-week submission streak for LeetCode
   const leetcodeStreak = useMemo(() => {
-    const submissionMap = data.leetcode?.submissionCalendar || {
-      '2026-07-10': 2,
-      '2026-07-15': 2,
-      '2026-07-16': 1,
-      '2026-08-15': 1,
-      '2026-08-16': 1,
-      '2026-09-02': 1,
-      '2026-09-14': 1,
-      '2026-09-16': 1,
-      '2026-09-19': 1,
-    }
+    const submissionMap = data.leetcode?.submissionCalendar || {}
 
-    const endDate = new Date()
+    const today = new Date()
+    const startSunday = new Date(today)
+    startSunday.setUTCDate(today.getUTCDate() - 52 * 7 - today.getUTCDay())
+
     const days = []
-    for (let i = 370; i >= 0; i--) {
-      const d = new Date(endDate)
-      d.setUTCDate(d.getUTCDate() - i)
+    const totalDays = Math.round((today - startSunday) / (1000 * 60 * 60 * 24)) + 1
+
+    for (let i = 0; i < totalDays; i++) {
+      const d = new Date(startSunday)
+      d.setUTCDate(d.getUTCDate() + i)
       const dateStr = d.toISOString().slice(0, 10)
       const count = submissionMap[dateStr] || 0
       let level = 0
@@ -165,34 +230,50 @@ export function Stats({ data = statsData }) {
     }
 
     const weeks = []
+    let currentWeek = []
     const monthHeaders = []
-    let lastMonth = null
+    let lastHeaderMonth = null
+    let lastHeaderCol = -10
 
-    for (let w = 0; w < Math.floor(days.length / 7); w++) {
-      const weekDays = days.slice(w * 7, (w + 1) * 7)
-      const week = weekDays.map((d, row) => {
-        const parts = d.date.split('-')
-        const dObj = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)))
-        const formattedDate = dObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
-        const tip = d.count === 0 ? 'No submissions' : d.count === 1 ? '1 submission' : `${d.count} submissions`
-        return {
-          row,
-          col: w,
-          date: d.date,
-          formattedDate,
-          level: d.level,
-          count: d.count,
-          tip: `${tip} on ${formattedDate}`,
-        }
-      })
-      weeks.push(week)
+    for (let i = 0; i < days.length; i++) {
+      const d = days[i]
+      const parts = d.date.split('-')
+      const dObj = new Date(Date.UTC(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)))
+      const dayOfWeek = dObj.getUTCDay()
 
-      const weekStart = days[w * 7]
-      const month = new Date(weekStart.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
-      if (month !== lastMonth) {
-        monthHeaders.push({ name: month, col: w })
-        lastMonth = month
+      if (dayOfWeek === 0 && currentWeek.length > 0) {
+        weeks.push(currentWeek)
+        currentWeek = []
       }
+
+      const col = weeks.length
+      const month = dObj.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })
+      if (month !== lastHeaderMonth && col - lastHeaderCol >= 2) {
+        monthHeaders.push({ name: month, col })
+        lastHeaderMonth = month
+        lastHeaderCol = col
+      }
+
+      const formattedDate = dObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+      const tip = d.count === 0 ? 'No submissions' : d.count === 1 ? '1 submission' : `${d.count} submissions`
+      currentWeek.push({
+        row: dayOfWeek,
+        col,
+        date: d.date,
+        formattedDate,
+        level: d.level,
+        count: d.count,
+        tip: `${tip} on ${formattedDate}`,
+      })
+    }
+
+    if (currentWeek.length > 0) {
+      const lastRow = currentWeek[currentWeek.length - 1].row
+      const col = weeks.length
+      for (let r = lastRow + 1; r < 7; r++) {
+        currentWeek.push({ row: r, col, empty: true })
+      }
+      weeks.push(currentWeek)
     }
 
     return {
@@ -320,29 +401,37 @@ export function Stats({ data = statsData }) {
                     {streak.weeks &&
                       streak.weeks.map((week, wIdx) => (
                         <div key={wIdx} className="streak-col">
-                          {week.map((day) => (
-                            <div
-                              key={day.row}
-                              className={`streak-cell level-${day.level}`}
-                              title={
-                                day.tip ||
-                                `${day.count} contributions on ${day.formattedDate}`
-                              }
-                              onMouseEnter={(e) => {
-                                const rect =
-                                  e.currentTarget.getBoundingClientRect()
-                                setHoveredCell({
-                                  count: day.count,
-                                  date: day.formattedDate,
-                                  tip: day.tip,
-                                  unit: 'contribution',
-                                  x: rect.left + rect.width / 2,
-                                  top: rect.top - 8,
-                                })
-                              }}
-                              onMouseLeave={() => setHoveredCell(null)}
-                            />
-                          ))}
+                          {week.map((day) =>
+                            day.empty ? (
+                              <div
+                                key={day.row}
+                                className="streak-cell empty"
+                                style={{ opacity: 0, pointerEvents: 'none' }}
+                              />
+                            ) : (
+                              <div
+                                key={day.row}
+                                className={`streak-cell level-${day.level}`}
+                                title={
+                                  day.tip ||
+                                  `${day.count} contributions on ${day.formattedDate}`
+                                }
+                                onMouseEnter={(e) => {
+                                  const rect =
+                                    e.currentTarget.getBoundingClientRect()
+                                  setHoveredCell({
+                                    count: day.count,
+                                    date: day.formattedDate,
+                                    tip: day.tip,
+                                    unit: 'contribution',
+                                    x: rect.left + rect.width / 2,
+                                    top: rect.top - 8,
+                                  })
+                                }}
+                                onMouseLeave={() => setHoveredCell(null)}
+                              />
+                            )
+                          )}
                         </div>
                       ))}
                   </div>
@@ -432,29 +521,37 @@ export function Stats({ data = statsData }) {
                       {leetcodeStreak.weeks &&
                         leetcodeStreak.weeks.map((week, wIdx) => (
                           <div key={wIdx} className="streak-col">
-                            {week.map((day) => (
-                              <div
-                                key={day.row}
-                                className={`streak-cell level-${day.level}`}
-                                title={
-                                  day.tip ||
-                                  `${day.count} submissions on ${day.formattedDate}`
-                                }
-                                onMouseEnter={(e) => {
-                                  const rect =
-                                    e.currentTarget.getBoundingClientRect()
-                                  setHoveredCell({
-                                    count: day.count,
-                                    date: day.formattedDate,
-                                    tip: day.tip,
-                                    unit: 'submission',
-                                    x: rect.left + rect.width / 2,
-                                    top: rect.top - 8,
-                                  })
-                                }}
-                                onMouseLeave={() => setHoveredCell(null)}
-                              />
-                            ))}
+                            {week.map((day) =>
+                              day.empty ? (
+                                <div
+                                  key={day.row}
+                                  className="streak-cell empty"
+                                  style={{ opacity: 0, pointerEvents: 'none' }}
+                                />
+                              ) : (
+                                <div
+                                  key={day.row}
+                                  className={`streak-cell level-${day.level}`}
+                                  title={
+                                    day.tip ||
+                                    `${day.count} submissions on ${day.formattedDate}`
+                                  }
+                                  onMouseEnter={(e) => {
+                                    const rect =
+                                      e.currentTarget.getBoundingClientRect()
+                                    setHoveredCell({
+                                      count: day.count,
+                                      date: day.formattedDate,
+                                      tip: day.tip,
+                                      unit: 'submission',
+                                      x: rect.left + rect.width / 2,
+                                      top: rect.top - 8,
+                                    })
+                                  }}
+                                  onMouseLeave={() => setHoveredCell(null)}
+                                />
+                              )
+                            )}
                           </div>
                         ))}
                     </div>

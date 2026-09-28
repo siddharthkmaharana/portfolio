@@ -23,7 +23,7 @@ function resolveAssetUrl(path) {
   return path.startsWith('src/') ? '/' + path : path
 }
 
-export function Projects({ projects = initialProjects, dark = true }) {
+export function Projects({ projects = initialProjects, dark = false }) {
   const [query, setQuery] = useState('')
   const [selectedProject, setSelectedProject] = useState(null)
 

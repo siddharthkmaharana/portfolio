@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 // Modular Components
@@ -15,8 +15,16 @@ const TABS = ['Projects', 'Experience', 'Credentials', 'TIL', 'Designs', 'Stats'
 
 function App() {
   const [activeTab, setActiveTab] = useState('Projects')
-  const [dark, setDark] = useState(true)
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem('portfolio_theme')
+    return saved !== null ? saved === 'dark' : false
+  })
   const [scheduleOpen, setScheduleOpen] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem('portfolio_theme', dark ? 'dark' : 'light')
+    document.body.style.backgroundColor = dark ? '#000000' : '#f5f5f5'
+  }, [dark])
 
   return (
     <div className={dark ? 'app dark' : 'app light'}>

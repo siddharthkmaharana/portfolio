@@ -72,13 +72,49 @@ async function main() {
   cells.forEach(c => totalCount += c.count);
   console.log('Sum of counts from days:', totalCount);
 
+  // Calculate streaks
+  const sortedCells = [...cells].sort((a, b) => a.date.localeCompare(b.date));
+  let currentStreak = 0;
+  let longestStreak = 0;
+  let tempStreak = 0;
+
+  for (let i = 0; i < sortedCells.length; i++) {
+    if (sortedCells[i].count > 0) {
+      tempStreak++;
+      if (tempStreak > longestStreak) longestStreak = tempStreak;
+    } else {
+      tempStreak = 0;
+    }
+  }
+
+  const lastIdx = sortedCells.length - 1;
+  let startIdx = -1;
+  if (sortedCells[lastIdx] && sortedCells[lastIdx].count > 0) {
+    startIdx = lastIdx;
+  } else if (sortedCells[lastIdx - 1] && sortedCells[lastIdx - 1].count > 0) {
+    startIdx = lastIdx - 1;
+  }
+
+  if (startIdx !== -1) {
+    for (let i = startIdx; i >= 0; i--) {
+      if (sortedCells[i].count > 0) {
+        currentStreak++;
+      } else {
+        break;
+      }
+    }
+  }
+
   const totalMatch = html.match(/([\d,]+)\s+contributions\s+in the last year/i);
-  const totalHeader = totalMatch ? totalMatch[1].replace(/,/g, '') : totalCount;
+  const totalHeader = totalMatch ? parseInt(totalMatch[1].replace(/,/g, ''), 10) : totalCount;
 
   const result = {
     total: totalHeader,
+    currentStreak,
+    longestStreak,
     monthHeaders,
     weeks,
+    lastUpdated: new Date().toISOString(),
   };
 
   const fs = await import('fs');
