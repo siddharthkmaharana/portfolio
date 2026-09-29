@@ -1,7 +1,54 @@
+import { useState, useEffect } from 'react'
 import { GitBranch } from 'lucide-react'
 import initialDesigns, { designProjects } from '../data/designs'
 
-export function Designs({ designs = designProjects || initialDesigns }) {
+const REMOTE_MANIFEST_URL = 'https://raw.githubusercontent.com/siddharthkmaharana/landing_page_gallery/main/designs.json'
+const CACHE_KEY = 'portfolio_landing_page_gallery_designs'
+
+export function Designs({ designs: propDesigns }) {
+  const [designs, setDesigns] = useState(() => {
+    if (propDesigns && propDesigns.length > 0) return propDesigns
+    try {
+      const cached = localStorage.getItem(CACHE_KEY)
+      if (cached) {
+        const parsed = JSON.parse(cached)
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed
+      }
+    } catch {
+      // ignore JSON parse or localStorage errors
+    }
+    return designProjects || initialDesigns
+  })
+
+  // Automatically sync with GitHub repository manifest on load
+  useEffect(() => {
+    let isMounted = true
+
+    async function syncFromGitHub() {
+      try {
+        const res = await fetch(`${REMOTE_MANIFEST_URL}?t=${Date.now()}`)
+        if (!res.ok) return
+        const remoteList = await res.json()
+        if (isMounted && Array.isArray(remoteList) && remoteList.length > 0) {
+          setDesigns(remoteList)
+          try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify(remoteList))
+          } catch {
+            // ignore localStorage quota errors
+          }
+        }
+      } catch (err) {
+        // Silently use cached/local entries if offline
+        console.debug('Designs auto-sync note:', err)
+      }
+    }
+
+    syncFromGitHub()
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
   return (
     <div className="view designs-view">
       <div className="design-list design-grid">
@@ -21,6 +68,11 @@ export function Designs({ designs = designProjects || initialDesigns }) {
                 alt={project.title}
                 className="preview-image"
                 loading="lazy"
+                onError={(e) => {
+                  if (project.fallbackImage && e.currentTarget.src !== project.fallbackImage) {
+                    e.currentTarget.src = project.fallbackImage
+                  }
+                }}
               />
             </div>
 
@@ -72,3 +124,4 @@ export function Designs({ designs = designProjects || initialDesigns }) {
 }
 
 export default Designs
+
