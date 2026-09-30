@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run sync:designs",
     "dev": "vite",
     "sync:designs": "node scripts/sync-designs.js",
+    "prebuild": "npm run sync:designs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

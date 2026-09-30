@@ -1,7 +1,7 @@
 /**
  * DESIGN SHOWCASE DATA
  * Automatically synchronized with https://github.com/siddharthkmaharana/landing_page_gallery
- * Last synced: 2026-09-30T10:46:14.317Z
+ * Last synced: 2026-09-30T13:12:06.132Z
  */
 
 export const designProjects = [
@@ -36,6 +36,23 @@ export const designProjects = [
       "Lenis",
       "Canvas 2D",
       "Interactive 3D"
+    ]
+  },
+  {
+    "id": "03",
+    "tag": "3D / 03",
+    "title": "Cast & Render — 3D Object Studio",
+    "description": "Scroll-scrubbed all-intra video landing page featuring frame-accurate 3D viewport scrubbing and typographic cross-fading drift panels.",
+    "image": "https://raw.githubusercontent.com/siddharthkmaharana/landing_page_gallery/main/landing-page-03/preview.png",
+    "fallbackImage": "/images/designs/cast-render-preview.png",
+    "liveUrl": "https://siddharthkmaharana.github.io/landing_page_gallery/landing-page-03/",
+    "githubUrl": "https://github.com/siddharthkmaharana/landing_page_gallery/tree/main/landing-page-03",
+    "tags": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Video Scrubbing",
+      "Editorial Design"
     ]
   }
 ];
