@@ -11,7 +11,7 @@ import Designs from './components/Designs'
 import Stats from './components/Stats'
 import { ScheduleModal, TopScheduleButton } from './components/ScheduleModal'
 
-const TABS = ['Projects', 'Experience', 'Credentials', 'TIL', 'Designs', 'Stats']
+const TABS = ['Projects', 'Designs', 'Stats', 'Credentials', 'TIL', 'Experience']
 
 function App() {
   const [activeTab, setActiveTab] = useState('Projects')
@@ -60,11 +60,11 @@ function App() {
             {/* TAB BODY VIEWS */}
             <div className="content-body">
               {activeTab === 'Projects' && <Projects dark={dark} />}
-              {activeTab === 'Experience' && <Experience />}
-              {activeTab === 'Credentials' && <Credentials />}
-              {activeTab === 'TIL' && <TIL />}
               {activeTab === 'Designs' && <Designs />}
               {activeTab === 'Stats' && <Stats />}
+              {activeTab === 'Credentials' && <Credentials />}
+              {activeTab === 'TIL' && <TIL />}
+              {activeTab === 'Experience' && <Experience />}
             </div>
           </section>
         </main>
