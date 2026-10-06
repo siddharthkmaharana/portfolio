@@ -47,7 +47,14 @@ function App() {
                     key={tab}
                     className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
                     type="button"
-                    onClick={() => setActiveTab(tab)}
+                    onClick={(e) => {
+                      setActiveTab(tab)
+                      e.currentTarget.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center',
+                      })
+                    }}
                   >
                     {tab}
                   </button>

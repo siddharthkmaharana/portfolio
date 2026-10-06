@@ -103,6 +103,19 @@ export function PersonalInfo({ dark, setDark, onScheduleCall }) {
             Resume
           </a>
         )}
+        <a
+          className="resume-btn mobile-jump-btn"
+          href="#content"
+          onClick={(e) => {
+            e.preventDefault()
+            const el = document.getElementById('content')
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' })
+            }
+          }}
+        >
+          View Work ↓
+        </a>
         <div className="social-links" aria-label="Social links">
           {personalInfo.socials.github && (
             <a

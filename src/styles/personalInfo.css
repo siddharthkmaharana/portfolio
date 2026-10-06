@@ -126,6 +126,10 @@
   background: var(--btn-secondary-hover);
 }
 
+.mobile-jump-btn {
+  display: none;
+}
+
 .social-links {
   display: flex;
   align-items: center;
