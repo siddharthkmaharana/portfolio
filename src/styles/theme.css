@@ -43,6 +43,8 @@
   --cal-border: #333333;
   --cal-text: #ffffff;
   --modal-bg: #0c0c0c;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.22);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.4);
   background-color: var(--bg-page);
   color: var(--text);
 }
@@ -80,6 +82,8 @@
   --cal-border: #e5e7eb;
   --cal-text: #000000;
   --modal-bg: #ffffff;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.32);
   background-color: var(--bg-page);
   color: var(--text);
 }
@@ -110,24 +114,18 @@
   box-sizing: border-box;
 }
 
-/* CUSTOM SLIM SCROLLBAR */
+/* HIDE DEFAULT SCROLLBARS GLOBALLY WHILE MAINTAINING SMOOTH SCROLLABILITY */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 0px;
+  height: 0px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #404040;
-}
 
 /* ==========================================================================
    CIRCULAR VIEW TRANSITION (THEME SPREADING RIPPLE ANIMATION)

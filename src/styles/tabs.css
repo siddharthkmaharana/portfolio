@@ -80,8 +80,31 @@
 .content-body {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
   padding: 20px 32px 48px 32px;
   box-sizing: border-box;
+}
+
+/* AUTO-ADJUSTABLE SLEEK SCROLLBAR FOR RIGHT SECTION */
+.content-body::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+}
+
+.content-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content-body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.content-body::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* VIEW FADE-IN ANIMATION */
