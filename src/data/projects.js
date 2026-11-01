@@ -5,6 +5,17 @@
 
 export const projects = [
   {
+    title: 'ARTSINLY',
+    date: 'November 1, 2026',
+    description: 'Modern, minimalist multi-vendor marketplace connecting regional artisans with buyers looking for authentic handmade crafts, traditional art, and culturally rooted products.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Prisma', 'Auth.js'],
+    features: 'Multi-vendor artisan storefronts, role-based access for buyers/sellers/admins, craft & regional discovery, inventory & order tracking, and editorial e-commerce design.',
+    source: 'https://github.com/siddharthkmaharana/ARTSINLY',
+    accent: 'amber',
+    image: 'src/assets/projects/artsinly.jpg',
+    image2: 'src/assets/projects/artsinly_ui.jpg',
+  },
+  {
     title: 'Cortexa',
     date: 'May 7, 2026',
     description: 'Cross-platform AI desktop assistant combining computer vision, conversational AI, voice interactions, and desktop/browser automation.',

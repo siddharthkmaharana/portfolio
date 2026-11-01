@@ -1,7 +1,7 @@
 /**
  * DESIGN SHOWCASE DATA
  * Automatically synchronized with https://github.com/siddharthkmaharana/landing_page_gallery
- * Last synced: 2026-10-06T07:33:20.987Z
+ * Last synced: 2026-11-01T13:49:56.862Z
  */
 
 export const designProjects = [

@@ -68,6 +68,10 @@
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+.project-card:not(:has(.project-preview-box)) {
+  grid-template-columns: 1fr;
+}
+
 .project-card:hover {
   border-color: var(--card-border-hover);
 }
