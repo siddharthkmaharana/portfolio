@@ -44,6 +44,27 @@ async function syncDesigns() {
     fs.mkdirSync(PUBLIC_DESIGNS_IMG_DIR, { recursive: true })
   }
 
+  // Clean up obsolete fallback images in public/images/designs not in designsData
+  if (fs.existsSync(PUBLIC_DESIGNS_IMG_DIR)) {
+    const activeImageFiles = new Set(
+      designsData
+        .map((d) => d.fallbackImage)
+        .filter(Boolean)
+        .map((img) => path.basename(img))
+    )
+    const existingFiles = fs.readdirSync(PUBLIC_DESIGNS_IMG_DIR)
+    for (const file of existingFiles) {
+      if (!activeImageFiles.has(file)) {
+        try {
+          fs.unlinkSync(path.join(PUBLIC_DESIGNS_IMG_DIR, file))
+          console.log(`🗑️ Removed obsolete design preview: ${file}`)
+        } catch (e) {
+          console.warn(`Could not remove ${file}:`, e.message)
+        }
+      }
+    }
+  }
+
   // Generate src/data/designs.js
   const fileContent = `/**
  * DESIGN SHOWCASE DATA
