@@ -6,12 +6,11 @@ import PersonalInfo from './components/PersonalInfo'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Credentials from './components/Credentials'
-import TIL from './components/TIL'
 import Designs from './components/Designs'
 import Stats from './components/Stats'
 import { ScheduleModal, TopScheduleButton } from './components/ScheduleModal'
 
-const TABS = ['Projects', 'Designs', 'Stats', 'Credentials', 'TIL', 'Experience']
+const TABS = ['Projects', 'Designs', 'Stats', 'Credentials', 'Experience']
 
 function App() {
   const [activeTab, setActiveTab] = useState('Projects')
@@ -70,7 +69,6 @@ function App() {
               {activeTab === 'Designs' && <Designs />}
               {activeTab === 'Stats' && <Stats />}
               {activeTab === 'Credentials' && <Credentials />}
-              {activeTab === 'TIL' && <TIL />}
               {activeTab === 'Experience' && <Experience />}
             </div>
           </section>

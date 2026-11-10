@@ -203,7 +203,7 @@ External link: <https://drive.google.com/drive/folders/1SudVVuHk8fNFA_Akuoe5ap9L
 
 - GitHub: <https://github.com/siddharthkmaharana>
 - X: <https://x.com/Siddharth_km2>
-- Email: <https://mail.google.com/mail/u/0/?fs=1&to=dharaindrayudh16@gmail.com&tf=cm>
+- Email: <https://mail.google.com/mail/u/0/?fs=1&to=siddharthk.maharana@gmail.com&tf=cm>
 - Phone: `tel:+916370553290`
 - LinkedIn: <https://www.linkedin.com/in/siddharth-kumar-maharana/>
 
