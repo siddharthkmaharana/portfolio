@@ -44,7 +44,7 @@ export const projects = [
     description: 'Interactive visualization tool for understanding and verifying data integrity with Merkle Trees and SHA-256 hashing.',
     tags: ['HTML', 'CSS', 'JavaScript', 'SHA-256', 'Cryptography', 'Visualization'],
     type: 'Research Project',
-    live: 'https://wanderlustt-ziz3.onrender.com/',
+    live: 'https://merkle-tree-visualizer-zeta.vercel.app/',
     source: 'https://github.com/siddharthkmaharana/Merkle-Tree-Visualizer',
     accent: 'mint',
     image: 'src/assets/projects/MTV_DM.png',
