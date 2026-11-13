@@ -41,14 +41,12 @@ export const personalInfo = {
   ],
 
   skills: [
-    { category: 'Programming Languages', list: 'Java, JavaScript, TypeScript' },
-    { category: 'Frontend', list: 'React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, Chart.js, HTML, SCSS, Skiper UI, Framer Motion, React Hook Form' },
-    { category: 'Javascript runtime', list: 'Node.js' },
-    { category: 'Backend', list: 'Express.js, REST APIs' },
-    { category: 'Database', list: 'MongoDB, MySQL' },
-    { category: 'Cloud', list: 'Render, Vercel, Cloudinary' },
-    { category: 'Tools', list: 'Git, Mapbox, Cloudflare, Firebase' },
-    { category: 'Tech Stack', list: 'MERN' },
+    { category: 'Programming Languages', list: 'Java, JavaScript, TypeScript, Python' },
+    { category: 'Frontend', list: 'React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, Chart.js, HTML, CSS, Framer Motion, React Hook Form' },
+    { category: 'Backend', list: 'Express.js, Node.js, REST APIs, FastAPI, Socket.io, WebRTC' },
+    { category: 'Database', list: 'MongoDB Atlas, PostgreSQL, MySQL' },
+    { category: 'Cloud & DevOps', list: 'AWS (EC2, S3), Docker, GitHub Actions, Git, Postman, Vercel, Firebase, Cloudflare' },
+    { category: 'Security & Testing', list: 'OAuth 2.0, RBAC, AES-256, Jest, Pytest, Postman' }
   ],
 }
 

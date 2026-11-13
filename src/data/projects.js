@@ -12,8 +12,8 @@ export const projects = [
     features: 'Multi-vendor artisan storefronts, role-based access for buyers/sellers/admins, craft & regional discovery, inventory & order tracking, and editorial e-commerce design.',
     source: 'https://github.com/siddharthkmaharana/ARTSINLY',
     accent: 'amber',
-    image: 'src/assets/projects/artsinly.jpg',
-    image2: 'src/assets/projects/artsinly_ui.jpg',
+    image: 'src/assets/projects/Artsinly_DM.png',
+    image2: 'src/assets/projects/Artsinly_LM.png',
   },
   {
     title: 'Cortexa',

@@ -124,6 +124,17 @@
   border-color: rgba(16, 185, 129, 0.5);
 }
 
+.streak-sync-btn.leetcode-sync-btn {
+  background: rgba(255, 161, 22, 0.1);
+  border-color: rgba(255, 161, 22, 0.3);
+  color: #ffa116;
+}
+
+.streak-sync-btn.leetcode-sync-btn:hover {
+  background: rgba(255, 161, 22, 0.2);
+  border-color: rgba(255, 161, 22, 0.5);
+}
+
 .streak-sync-btn.syncing {
   opacity: 0.8;
   cursor: wait;

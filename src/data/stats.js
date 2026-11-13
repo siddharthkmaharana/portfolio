@@ -13,10 +13,10 @@ export const statsData = {
   leetcode: {
     username: 'siddharthkmleetcode',
     profileUrl: 'https://leetcode.com/u/siddharthkmleetcode/',
-    totalSolved: 9,
+    totalSolved: 11,
     totalQuestions: 4060,
-    totalSubmissions: 11,
-    acceptanceRate: '90.9%',
+    totalSubmissions: 14,
+    acceptanceRate: '78.6%',
     submissionCalendar: {
       '2026-07-10': 2,
       '2026-07-15': 2,
@@ -27,13 +27,17 @@ export const statsData = {
       '2026-09-14': 1,
       '2026-09-16': 1,
       '2026-09-19': 1,
+      '2026-11-01': 2,
+      '2026-11-02': 1,
     },
     breakdown: [
-      { difficulty: 'Easy', solved: 6, total: 966, color: '#00b8a3' },
+      { difficulty: 'Easy', solved: 8, total: 966, color: '#00b8a3' },
       { difficulty: 'Medium', solved: 2, total: 2117, color: '#ffc01e' },
       { difficulty: 'Hard', solved: 1, total: 977, color: '#ff375f' },
     ],
     recentSubmissions: [
+      { title: 'Longest Common Prefix', slug: 'longest-common-prefix', difficulty: 'Easy', time: 'Recent' },
+      { title: 'Valid Parentheses', slug: 'valid-parentheses', difficulty: 'Easy', time: 'Recent' },
       { title: 'Power of Three', slug: 'power-of-three', difficulty: 'Easy', time: 'Recent' },
       { title: 'Power of Two', slug: 'power-of-two', difficulty: 'Easy', time: 'Recent' },
       { title: 'Tenth Line', slug: 'tenth-line', difficulty: 'Easy', time: 'Recent' },
